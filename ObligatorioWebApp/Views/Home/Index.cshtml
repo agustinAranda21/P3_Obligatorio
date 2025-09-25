@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome @Context.Session.GetString("usuario")</h1>
+    @if (Context.Session.GetString("usuarioRol") == "Administrador")
+    {
+        <h2>CRUD TIPOS DE GASTO</h2>
+        <p>
+            <a asp-controller="TipoGasto" asp-action="AddTipoGasto">Crear</a> - 
+            <a asp-controller="TipoGasto" asp-action="EliminarTipoGasto">Eliminar</a> - 
+            <a asp-controller="TipoGasto" asp-action="EditarTipoGasto">Editar</a>
+        </p>
+    }
+    
+    
+</div>

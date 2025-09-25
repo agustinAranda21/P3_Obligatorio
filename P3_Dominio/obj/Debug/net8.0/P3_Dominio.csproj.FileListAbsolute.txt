@@ -1,0 +1,24 @@
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\P3_Dominio\bin\Debug\net8.0\P3_Dominio.deps.json
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\P3_Dominio\bin\Debug\net8.0\P3_Dominio.dll
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\P3_Dominio\bin\Debug\net8.0\P3_Dominio.pdb
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.AssemblyInfoInputs.cache
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.AssemblyInfo.cs
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.csproj.CoreCompileInputs.cache
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.dll
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\P3_Dominio\obj\Debug\net8.0\refint\P3_Dominio.dll
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.pdb
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\P3_Dominio\obj\Debug\net8.0\ref\P3_Dominio.dll
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.csproj.AssemblyReference.cache
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\bin\Debug\net8.0\P3_Dominio.deps.json
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\bin\Debug\net8.0\P3_Dominio.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\bin\Debug\net8.0\P3_Dominio.pdb
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.csproj.AssemblyReference.cache
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.AssemblyInfoInputs.cache
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.AssemblyInfo.cs
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.csproj.CoreCompileInputs.cache
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\obj\Debug\net8.0\refint\P3_Dominio.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.pdb
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\obj\Debug\net8.0\ref\P3_Dominio.dll

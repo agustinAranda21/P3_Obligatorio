@@ -1,0 +1,39 @@
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\bin\Debug\net8.0\AccessDataLogic.deps.json
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\bin\Debug\net8.0\AccessDataLogic.dll
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\bin\Debug\net8.0\AccessDataLogic.pdb
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.csproj.AssemblyReference.cache
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.AssemblyInfoInputs.cache
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.AssemblyInfo.cs
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.csproj.CoreCompileInputs.cache
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.dll
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\obj\Debug\net8.0\refint\AccessDataLogic.dll
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.pdb
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\obj\Debug\net8.0\ref\AccessDataLogic.dll
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\bin\Debug\net8.0\ObligatorioWebApp.deps.json
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\bin\Debug\net8.0\ObligatorioWebApp.runtimeconfig.json
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\bin\Debug\net8.0\appsettings.json
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\bin\Debug\net8.0\ObligatorioWebApp.staticwebassets.runtime.json
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\bin\Debug\net8.0\ObligatorioWebApp.staticwebassets.endpoints.json
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\bin\Debug\net8.0\ObligatorioWebApp.exe
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\bin\Debug\net8.0\ObligatorioWebApp.dll
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\bin\Debug\net8.0\ObligatorioWebApp.pdb
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\AccessDataLogic\obj\Debug\net8.0\AccessDa.64409F10.Up2Date
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\bin\Debug\net8.0\AccessDataLogic.deps.json
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\bin\Debug\net8.0\AccessDataLogic.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\bin\Debug\net8.0\AccessDataLogic.pdb
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.csproj.AssemblyReference.cache
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.AssemblyInfoInputs.cache
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.AssemblyInfo.cs
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.csproj.CoreCompileInputs.cache
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\obj\Debug\net8.0\AccessDa.64409F10.Up2Date
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\obj\Debug\net8.0\refint\AccessDataLogic.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.pdb
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\obj\Debug\net8.0\ref\AccessDataLogic.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\bin\Debug\net8.0\P3_Dominio.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\bin\Debug\net8.0\P3_Dominio.pdb
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\bin\Debug\net8.0\AccessDataLogic.runtimeconfig.json
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.genruntimeconfig.cache

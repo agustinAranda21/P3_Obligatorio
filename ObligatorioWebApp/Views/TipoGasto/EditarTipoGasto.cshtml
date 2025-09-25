@@ -1,0 +1,39 @@
+﻿@using LogicaAplicacion.DTOs
+
+@model IEnumerable<LogicaAplicacion.DTOs.TipoGastoDTO>
+        <h1>Editar tipo de gasto</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (TipoGastoDTO tipoGasto in Model)
+                {
+                    <form method="post">
+                    <div class="form-group">
+                    <tr>
+                        <td>
+                            <input typeof="hidden" name="Id" value="@tipoGasto.Id"/>
+                        </td>
+                        <td>
+                            <input type="text" name="Nombre" value="@tipoGasto.Nombre" class="form-control" />
+                        </td>
+                        <td>
+                            <input type="text" name="Descripcion" value="@tipoGasto.Descripcion" class="form-control" />
+                        </td>
+                        
+                        <td>
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                        </td>
+                    </tr>
+            </div>
+            </form>
+                }
+            </tbody>
+        </table>
+   

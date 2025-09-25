@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "JHWIwHJWQoY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\agust\\Desktop\\PrimeraPreentrega\\P3_Obligatorio\\P3_Dominio\\P3_Dominio.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\agust\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.19\\microsoft.entityframeworkcore.abstractions.8.0.19.nupkg.sha512"
+  ],
+  "logs": []
+}

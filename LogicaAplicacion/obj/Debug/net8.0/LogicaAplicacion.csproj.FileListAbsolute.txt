@@ -1,0 +1,28 @@
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\LogicaAplicacion\bin\Debug\net8.0\LogicaAplicacion.deps.json
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\LogicaAplicacion\bin\Debug\net8.0\LogicaAplicacion.dll
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\LogicaAplicacion\bin\Debug\net8.0\LogicaAplicacion.pdb
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.AssemblyInfoInputs.cache
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.AssemblyInfo.cs
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.csproj.CoreCompileInputs.cache
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.dll
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\LogicaAplicacion\obj\Debug\net8.0\refint\LogicaAplicacion.dll
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.pdb
+C:\Users\agust\source\repos\Enum\Primer Ejemplo POO\P3_Dominio\LogicaAplicacion\obj\Debug\net8.0\ref\LogicaAplicacion.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\bin\Debug\net8.0\LogicaAplicacion.deps.json
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\bin\Debug\net8.0\LogicaAplicacion.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\bin\Debug\net8.0\LogicaAplicacion.pdb
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.AssemblyInfoInputs.cache
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.AssemblyInfo.cs
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.csproj.CoreCompileInputs.cache
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\obj\Debug\net8.0\refint\LogicaAplicacion.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.pdb
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\obj\Debug\net8.0\ref\LogicaAplicacion.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\bin\Debug\net8.0\AccessDataLogic.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\bin\Debug\net8.0\P3_Dominio.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\bin\Debug\net8.0\AccessDataLogic.pdb
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\bin\Debug\net8.0\P3_Dominio.pdb
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.csproj.AssemblyReference.cache
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\obj\Debug\net8.0\LogicaAp.7CDA08B3.Up2Date

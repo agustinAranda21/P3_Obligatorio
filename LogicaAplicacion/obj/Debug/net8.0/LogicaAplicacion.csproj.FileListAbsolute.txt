@@ -26,3 +26,4 @@ C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\bin\Deb
 C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\bin\Debug\net8.0\P3_Dominio.pdb
 C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.csproj.AssemblyReference.cache
 C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\obj\Debug\net8.0\LogicaAp.7CDA08B3.Up2Date
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\LogicaAplicacion\obj\Debug\net8.0\LogicaAplicacion.sourcelink.json

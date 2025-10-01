@@ -1,6 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using LogicaAplicacion.DTOs
+@model IEnumerable<LogicaAplicacion.DTOs.UsuarioDTO>
+
 <div class="text-center">
     <h1 class="display-4">Welcome @Context.Session.GetString("usuario")</h1>
     @if (Context.Session.GetString("usuarioRol") == "Administrador")
@@ -11,7 +14,35 @@
             <a asp-controller="TipoGasto" asp-action="EliminarTipoGasto">Eliminar</a> - 
             <a asp-controller="TipoGasto" asp-action="EditarTipoGasto">Editar</a>
         </p>
-    }
-    
-    
+    }  
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Clave</th>
+            <th>Email</th>
+            <th>Rol de Usuario</th>
+            <th>Equipo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (UsuarioDTO usuario in Model)
+        {
+            <tr>
+                <td>@usuario.Id</td>
+                <td>@usuario.Nombre</td>
+                <td>@usuario.Apellido</td>
+                <td>@usuario.Clave</td>
+                <td>@usuario.Email</td>
+                <td>@usuario.RolDeUsuario.TipoRol</td>
+                <td>@usuario.Equipo?.Id</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

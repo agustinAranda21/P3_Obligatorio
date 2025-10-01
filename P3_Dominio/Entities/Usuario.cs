@@ -4,11 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using P3_Dominio.Interfaces;
 using P3_Dominio.ValueObjects.UsuarioVO;
 
 namespace P3_Dominio.Entities
 {
+    [Index(nameof(Email), IsUnique = true)]
     public class Usuario : IValidable
     {
         public int Id { get; set; }

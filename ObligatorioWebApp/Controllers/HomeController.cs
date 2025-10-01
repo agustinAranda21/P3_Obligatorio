@@ -10,15 +10,17 @@ namespace ObligatorioWebApp.Controllers;
 public class HomeController : Controller
 {
     private ILogin _login;
+    private IObtenerUsuarios _obtenerUsuarios;
 
-    public HomeController(ILogin login)
+    public HomeController(ILogin login, IObtenerUsuarios obtenerUsuarios)
     {
         _login = login;
+        _obtenerUsuarios = obtenerUsuarios;
     }
     [LogueadoFilter]
     public IActionResult Index()
     {
-        return View();
+        return View(_obtenerUsuarios.ObtenerUsuarios());
     }
 
     public IActionResult Login(string error)

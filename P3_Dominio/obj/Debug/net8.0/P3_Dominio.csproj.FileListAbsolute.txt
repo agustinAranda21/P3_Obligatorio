@@ -22,3 +22,4 @@ C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\obj\Debug\net
 C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\obj\Debug\net8.0\refint\P3_Dominio.dll
 C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.pdb
 C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\obj\Debug\net8.0\ref\P3_Dominio.dll
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\P3_Dominio\obj\Debug\net8.0\P3_Dominio.sourcelink.json

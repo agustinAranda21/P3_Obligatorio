@@ -37,3 +37,4 @@ C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\bin\Debu
 C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\bin\Debug\net8.0\P3_Dominio.pdb
 C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\bin\Debug\net8.0\AccessDataLogic.runtimeconfig.json
 C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.genruntimeconfig.cache
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\AccessDataLogic\obj\Debug\net8.0\AccessDataLogic.sourcelink.json

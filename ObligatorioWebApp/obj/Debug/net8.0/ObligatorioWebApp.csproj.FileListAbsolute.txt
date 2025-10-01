@@ -401,3 +401,4 @@ C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\ObligatorioWebApp\obj\De
 C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\ObligatorioWebApp\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\ObligatorioWebApp\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
 C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\ObligatorioWebApp\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\ObligatorioWebApp\obj\Debug\net8.0\ObligatorioWebApp.sourcelink.json

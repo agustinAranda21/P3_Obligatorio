@@ -38,6 +38,7 @@ namespace ObligatorioWebApp
             builder.Services.AddScoped<IObtenerTiposGasto, ObtenerTiposGastoCU>();
             builder.Services.AddScoped<IEditarTipoGasto, EditarTipoGastoCU>();
             builder.Services.AddScoped<IAddAuditoriaTipoGasto, AddAuditoriaTipoGastoCU>();
+            builder.Services.AddScoped<IObtenerUsuarios, ObtenerUsuariosCU>();
 
 
             var app = builder.Build();

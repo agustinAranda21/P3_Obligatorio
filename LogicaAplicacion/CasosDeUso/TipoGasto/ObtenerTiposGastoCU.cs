@@ -21,12 +21,7 @@ namespace LogicaAplicacion.CasosDeUso.TipoGasto
 
         public IEnumerable<TipoGastoDTO> FindAll()
         {
-            List<TipoGastoDTO> listaDTO = new List<TipoGastoDTO>();
-            foreach (P3_Dominio.Entities.TipoGasto unTipo in _repo.FindAll())
-            {
-                listaDTO.Add(TipoGastoMapper.ToDTO(unTipo));
-            }
-            return listaDTO;
+            return _repo.FindAll().Select(t => TipoGastoMapper.ToDTO(t)).ToList();
         }
     }
 }

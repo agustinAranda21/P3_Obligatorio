@@ -31,7 +31,7 @@ namespace AccessDataLogic.Entity_Framework
             //  Esto es lo que hace que MetodoDePago sea un tipo "embebido"
             modelBuilder.Entity<Pago>().OwnsOne(p => p.MetodoDePago);
         }
-    }
+    } 
 
 }
 

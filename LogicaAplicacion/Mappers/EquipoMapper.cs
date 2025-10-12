@@ -12,10 +12,12 @@ namespace LogicaAplicacion.Mappers
     {
         public static Equipo FromDTO(EquipoDTO dto)
         {
+            if (dto == null) return null;
+            
             return new Equipo
             {
-              Id = dto.Id,
-              Nombre = dto.Nombre,
+                Id = dto.Id,
+                Nombre = dto.Nombre,
             };
         }
 

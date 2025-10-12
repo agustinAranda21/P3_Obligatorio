@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using P3_Dominio.Entities;
 using P3_Dominio.Exceptions;
 using P3_Dominio.RepositoryInterfaces;
@@ -25,27 +26,29 @@ namespace AccessDataLogic.Entity_Framework.Repositorios
 
         public IEnumerable<Usuario> FindAll()
         {
-            throw new NotImplementedException();
+            return _context.usuarios.Include(u => u.Equipo)
+                .OrderBy(user => user.NombreCompleto.Apellido)
+                .ThenBy(user => user.Id)
+                .ToList();
         }
 
         public Usuario FindById(int id)
         {
-            throw new NotImplementedException();
+            return _context.usuarios.Where(user => user.Id == id).FirstOrDefault();
         }
 
         public Usuario Login(string email, Password password)
         {
-            foreach(Usuario usuario in _context.usuarios)
+            Usuario logueado = _context.usuarios.Where(
+                user =>
+                user.Email == email &&
+                user.PasswordValidada.Clave == password.Clave
+                ).FirstOrDefault();
+            if (logueado == null)
             {
-                if(usuario.Email == email)
-                {
-                    if(usuario.PasswordValidada.Equals(password))
-                    {
-                        return usuario;
-                    }
-                }
+                throw new UsuarioException("Email o contraseña incorrectos.");
             }
-            throw new UsuarioException("Email o contraseña incorrectos.");
+            return logueado;
         }
 
         public void Remove(int id)

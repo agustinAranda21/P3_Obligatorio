@@ -26,6 +26,11 @@ namespace ObligatorioWebApp.Controllers
             _auditoria = auditoria;
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         // GET: TipoGastoController
         public IActionResult AddTipoGasto()
         {

@@ -12,7 +12,7 @@ namespace LogicaAplicacion.DTOs
         [Required(ErrorMessage = "La fecha de pago es requerida.")]
         public DateTime FechaDePago { get; set; }
         [Required(ErrorMessage = "El número de recibo es requerido.")]
-        public string NumeroDeRecibo { get; set; }
-        
+        public string? NumeroDeRecibo { get; set; }
+
     }
 }

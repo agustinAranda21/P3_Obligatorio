@@ -16,8 +16,8 @@ namespace LogicaAplicacion.Mappers
             {
                 Id = dto.Id,
                 MetodoDePago = MetodoDePagoMapper.FromDTO(dto.MetodoDePago),
-                TipoGasto = TipoGastoMapper.FromDTO(dto.TipoGasto),
-                Usuario = UsuarioMapper.FromDTO(dto.Usuario),
+                TipoGastoId = dto.TipoGastoId,
+                UsuarioId = dto.UsuarioId,
                 Descripcion = dto.Descripcion,
                 Monto = dto.Monto,
                 Desde = dto.Desde,

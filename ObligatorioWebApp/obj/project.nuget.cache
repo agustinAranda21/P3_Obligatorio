@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z4MS4AEPYU0=",
+  "dgSpecHash": "KuM/g+0s2KM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\agust\\Desktop\\PrimeraPreentrega\\P3_Obligatorio\\ObligatorioWebApp\\ObligatorioWebApp.csproj",
+  "projectFilePath": "C:\\Users\\agust\\Desktop\\ObligatorioooP3\\P3_Obligatorio\\ObligatorioWebApp\\ObligatorioWebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\agust\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\agust\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

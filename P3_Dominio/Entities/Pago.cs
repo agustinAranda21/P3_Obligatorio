@@ -13,8 +13,15 @@ namespace P3_Dominio.Entities
     {
         public int Id { get; set; }
         public MetodoDePago MetodoDePago { get; set; }
+        
+        // Agregar foreign keys
+        public int TipoGastoId { get; set; }
+        public int UsuarioId { get; set; }
+        
+        // Navigation properties
         public TipoGasto TipoGasto { get; set; }
         public Usuario Usuario { get; set; }
+        
         [Required(ErrorMessage="El campo descripción no puede estar vacío.")]
         [StringLength(50, MinimumLength =6)]
         public string Descripcion { get; set; }

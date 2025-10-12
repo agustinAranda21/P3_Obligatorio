@@ -26,6 +26,19 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                         }
+                        @if (!string.IsNullOrEmpty(Context.Session.GetString("usuario")))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="TipoGasto" asp-action="Index">Administrar tipos de gasto</a>
+                            </li>
+                        }
+                        @if (!string.IsNullOrEmpty(Context.Session.GetString("usuario")))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Pago" asp-action="Index">Administrar pagos</a>
+                            </li>
+                        }
+
                         @if(!string.IsNullOrEmpty(Context.Session.GetString("usuario")))
                         {
                             <li class="nav-item">

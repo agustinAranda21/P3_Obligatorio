@@ -1,0 +1,56 @@
+﻿@using LogicaAplicacion.DTOs
+@model IEnumerable<LogicaAplicacion.DTOs.PagoDTO>
+
+@if (Context.Session.GetString("usuarioRol") == "Administrador")
+{
+    <h2>Selecciona el tipo de pago que quiera registrar...</h2>
+    <p>
+        <a asp-controller="Pago" asp-action="AddPagoUnico">Unico</a> -
+        <a asp-controller="Pago" asp-action="AddPagoRecurrente">Recurrente</a> 
+    </p>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Metodo de pago</th>
+                <th>Tipo de gasto</th>
+                <th>Usuario</th>
+                <th>Descricion</th>
+                <th>Monto</th>
+                <th>Fecha</th>
+                <th>Numero recibo</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (PagoDTO pago in Model)
+            {
+                <tr>
+                    <td>@pago.Id</td>
+                    <td>@pago.MetodoDePago</td>
+                    <td>@pago.TipoGasto.Nombre</td>
+                    <td>@pago.Usuario.Apellido</td>
+                    <td>@pago.Descripcion</td>
+                    <td>@pago.Monto</td>
+                    @if(pago is UnicoDTO unico)
+                    {
+                        <td>@unico.FechaDePago</td>
+                        <td>@unico.NumeroDeRecibo</td>
+                        <td>-</td>
+                        <td>-</td>
+                    }
+                    else if(pago is RecurrenteDTO recurrente) 
+                    {
+                        <td>-</td>
+                        <td>-</td>
+                        <td>@recurrente.Desde</td>
+                        <td>@recurrente.Hasta</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

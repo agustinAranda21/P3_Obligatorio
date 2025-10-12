@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Query;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using P3_Dominio.Entities;
 using P3_Dominio.RepositoryInterfaces;
 using System;
@@ -26,12 +27,12 @@ namespace AccessDataLogic.Entity_Framework.Repositorios
 
         public IEnumerable<TipoGasto> FindAll()
         {
-            return _context.tipoGastos;
+            return _context.tipoGastos.ToList();
         }
 
         public TipoGasto FindById(int id)
         {
-            throw new NotImplementedException();
+            return _context.tipoGastos.Where(t => t.Id == id).FirstOrDefault();
         }
 
         public void Remove(int id)

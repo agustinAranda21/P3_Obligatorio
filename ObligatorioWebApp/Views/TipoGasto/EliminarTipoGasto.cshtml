@@ -1,12 +1,6 @@
 ﻿@using LogicaAplicacion.DTOs
 @model IEnumerable<LogicaAplicacion.DTOs.TipoGastoDTO>
 
-@if(ViewBag.Error != null)
-{
-     <div class="alert alert-danger">
-            @ViewBag.Error
-        </div>
-}
 
 <table class="table">
     <thead>
@@ -42,3 +36,17 @@
         }
     </tbody>
 </table>
+
+@if(ViewBag.Mensaje != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Mensaje
+    </div>
+}
+
+@if(ViewBag.Error != null)
+{
+     <div class="alert alert-danger">
+            @ViewBag.Error
+        </div>
+}

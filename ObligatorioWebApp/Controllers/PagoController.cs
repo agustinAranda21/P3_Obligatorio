@@ -30,7 +30,8 @@ namespace ObligatorioWebApp.Controllers
         public IActionResult Index()
         {
             IEnumerable<PagoDTO> pagos = _obtenerPagos.ObtenerPagos();
-            return View(pagos);
+            List<PagoDTO> listaPagos = pagos.ToList();
+            return View(listaPagos);
         }
 
         public IActionResult AddPagoUnico()
@@ -50,6 +51,15 @@ namespace ObligatorioWebApp.Controllers
         [HttpPost]
         public IActionResult AddPagoUnico(UnicoDTO pago)
         {
+            IEnumerable<TipoGastoDTO> tiposGasto = _tiposGasto.FindAll();
+            IEnumerable<UsuarioDTO> usuarios = _usuarios.ObtenerUsuarios();
+
+            AddPagoViewModel viewModel = new AddPagoViewModel
+            {
+                TiposGasto = tiposGasto,
+                Usuarios = usuarios
+            };
+
             try
             {
                 int metodoDePagoId = Convert.ToInt32(Request.Form["MetodoDePago"]);
@@ -65,13 +75,13 @@ namespace ObligatorioWebApp.Controllers
                 pago.UsuarioId = usuarioId;
 
                 _pago.Add(pago);
-                ViewBag.Mensaje = "Pago registrado con éxito";
-                return RedirectToAction("Index");
+                ViewBag.Mensaje = "Pago registrado con éxito.";
+                return View(viewModel);
             }
             catch (Exception ex)
             {
-                ViewBag.Error = "Sucedió un error inesperado";
-                return RedirectToAction("Index");
+                ViewBag.Error = "Error, verifique los datos.";
+                return View(viewModel);
             }
         }
         
@@ -92,6 +102,16 @@ namespace ObligatorioWebApp.Controllers
         [HttpPost]
         public IActionResult AddPagoRecurrente(RecurrenteDTO pago)
         {
+            IEnumerable<TipoGastoDTO> tiposGasto = _tiposGasto.FindAll();
+            IEnumerable<UsuarioDTO> usuarios = _usuarios.ObtenerUsuarios();
+
+            AddPagoViewModel viewModel = new AddPagoViewModel
+            {
+                TiposGasto = tiposGasto,
+                Usuarios = usuarios
+            };
+
+
             try
             {
                 int metodoDePagoId = Convert.ToInt32(Request.Form["MetodoDePago"]);
@@ -107,13 +127,13 @@ namespace ObligatorioWebApp.Controllers
                 pago.UsuarioId = usuarioId;
 
                 _pago.Add(pago);
-                ViewBag.Mensaje = "Pago registrado con éxito";
-                return RedirectToAction("Index");
+                ViewBag.Mensaje = "Pago registrado con éxito.";
+                return View(viewModel);
             }
             catch (Exception ex)
             {
-                ViewBag.Error = "Sucedió un error inesperado";
-                return RedirectToAction("Index");
+                ViewBag.Error = "Error, verifique los datos.";
+                return View(viewModel);
             }
         }  
 
@@ -199,3 +219,4 @@ namespace ObligatorioWebApp.Controllers
     }
 
 }
+ 

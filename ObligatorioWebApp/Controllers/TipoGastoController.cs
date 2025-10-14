@@ -35,7 +35,9 @@ namespace ObligatorioWebApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<TipoGastoDTO> lista = _obtener.FindAll();
+            List<TipoGastoDTO> listaTipos = lista.ToList();
+            return View(listaTipos);
         }
 
         // GET: TipoGastoController
@@ -63,6 +65,7 @@ namespace ObligatorioWebApp.Controllers
                     Usuario = HttpContext.Session.GetString("usuarioApellido") 
                 }; 
                 _auditoria.Add(auditoria);
+                ViewBag.Mensaje = "Tipo de gasto creado con éxiito.";
                 return View();
             }
             catch (Exception ex)
@@ -105,7 +108,8 @@ namespace ObligatorioWebApp.Controllers
                         Usuario = HttpContext.Session.GetString("usuarioApellido")
                     };
                     _auditoria.Add(auditoria);
-                    return View(lista);
+                    ViewBag.Mensaje = "Tipo de gasto eliminado con éxito.";
+                return View(lista);
             }
             catch (Exception ex)
             {

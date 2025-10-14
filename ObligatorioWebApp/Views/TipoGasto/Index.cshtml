@@ -1,4 +1,7 @@
-﻿@if (Context.Session.GetString("usuarioRol") == "Administrador")
+﻿@using LogicaAplicacion.DTOs
+@model List<LogicaAplicacion.DTOs.TipoGastoDTO>
+
+@if (Context.Session.GetString("usuarioRol") == "Administrador")
 {
     <h2>CRUD TIPOS DE GASTO</h2>
     <p>
@@ -6,4 +9,27 @@
         <a asp-controller="TipoGasto" asp-action="EliminarTipoGasto">Eliminar</a> -
         <a asp-controller="TipoGasto" asp-action="EditarTipoGasto">Editar</a>
     </p>
+
+        <h2>Listado de todos los tipos de gasto</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (TipoGastoDTO tipo in Model)
+                {
+                    <tr>
+                        <td>@tipo.Id</td>
+                        <td>@tipo.Nombre</td>
+                        <td>@tipo.Descripcion</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    
 }
+

@@ -2,11 +2,25 @@
     <div class="form-group">
         <h1>Agregar nuevo tipo de gasto</h1>
         <label for="exampleInputNombre">Nombre</label>
-        <input type="text" class="form-control" name="nombre" id="exampleInputNombre" placeholder="Nombre">
+        <input type="text" class="form-control" name="nombre" id="exampleInputNombre" placeholder="Nombre" required>
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Descripcion</label>
-        <input type="text" class="form-control" name="descripcion" id="exampleInputDescripcion" placeholder="Descripcion">
+        <input type="text" class="form-control" name="descripcion" id="exampleInputDescripcion" placeholder="Descripcion" required>
     </div>
     <button type="submit" class="btn btn-primary">Añadir</button>
 </form>
+
+@if(ViewBag.Mensaje != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Mensaje
+    </div>
+}
+
+@if(ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}

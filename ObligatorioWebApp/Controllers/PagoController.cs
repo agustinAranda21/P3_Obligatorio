@@ -115,9 +115,87 @@ namespace ObligatorioWebApp.Controllers
                 ViewBag.Error = "Sucedió un error inesperado";
                 return RedirectToAction("Index");
             }
+        }  
+
+        public IActionResult ListadoMensual()
+        {
+            if (HttpContext.Session.GetString("usuarioRol") != "Gerente")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            IEnumerable<PagoDTO> pagos = _obtenerPagos.ObtenerPagos();
+            List<PagoDTO> pagosPorFecha = pagos.ToList();
+            return View(pagosPorFecha);
         }
-        
-    
+
+        [HttpPost]
+        public IActionResult ListadoMensual(DateTime unaFecha)
+        {
+            IEnumerable<PagoDTO> pagos = _obtenerPagos.ObtenerPagos();
+            int mesSeleccionado = unaFecha.Month;
+            int añoSeleccionado = unaFecha.Year;
+
+            // Filtrar pagos únicos del mes seleccionado
+            IEnumerable<PagoDTO> pagosUnicos = pagos.OfType<UnicoDTO>().Where(u => u.FechaDePago.Month == mesSeleccionado && u.FechaDePago.Year == añoSeleccionado).Cast<PagoDTO>();
+
+            // Filtrar pagos recurrentes que aplican al mes seleccionado
+            IEnumerable<PagoDTO> pagosRecurrentes = pagos.OfType<RecurrenteDTO>()
+                .Where(r => (r.Desde.Year < añoSeleccionado || (r.Desde.Year == añoSeleccionado && r.Desde.Month <= mesSeleccionado)) &&
+                            (r.Hasta.Year > añoSeleccionado || (r.Hasta.Year == añoSeleccionado && r.Hasta.Month >= mesSeleccionado)))
+                .Select(r => 
+                {
+                    double añosRestantes = r.Hasta.Year - añoSeleccionado;
+                    double mesesTotales = (añosRestantes * 12) + (r.Hasta.Month - mesSeleccionado);
+                    r.SaldoPendiente = r.Monto * mesesTotales;
+                    return r;
+                })
+                .Cast<PagoDTO>();
+
+            // Combinar ambos tipos de pagos
+            List<PagoDTO> pagosPorFecha = pagosUnicos.Concat(pagosRecurrentes).ToList();
+
+            if (!pagosPorFecha.Any())
+            {
+                ViewBag.Error = "No se encontraron pagos en el mes y año indicados.";
+            }
+
+            return View(pagosPorFecha);
+
+            /*IEnumerable<PagoDTO> pagos = _obtenerPagos.ObtenerPagos();
+            List<PagoDTO> pagosPorFecha = new List<PagoDTO>();
+            bool found = false;
+            
+            int mesSeleccionado = unaFecha.Month;
+            int añoSeleccionado = unaFecha.Year;
+
+            double saldoPendiente = 0;
+            
+            foreach (PagoDTO p in pagos)
+            {
+                if (p is UnicoDTO u && u.FechaDePago.Month == mesSeleccionado && u.FechaDePago.Year == añoSeleccionado)
+                {
+                    pagosPorFecha.Add(p);
+                    found = true;
+                }
+
+                if(p is RecurrenteDTO r && 
+                   ((r.Desde.Year < añoSeleccionado || (r.Desde.Year == añoSeleccionado && r.Desde.Month <= mesSeleccionado)) &&
+                    (r.Hasta.Year > añoSeleccionado || (r.Hasta.Year == añoSeleccionado && r.Hasta.Month >= mesSeleccionado))))
+                {
+                    double añosRestantes = r.Hasta.Year - añoSeleccionado;
+                    double mesesTotales = (añosRestantes * 12) + (r.Hasta.Month - mesSeleccionado);
+                    saldoPendiente = r.Monto * mesesTotales;
+                    p.SaldoPendiente = saldoPendiente;
+                    pagosPorFecha.Add(p);
+                    found = true;
+                }
+            }
+
+            if (!found)
+            {
+                ViewBag.Error = "No se encontraron pagos en el mes y año indicados.";
+            }*/
+        }
     }
 
 }

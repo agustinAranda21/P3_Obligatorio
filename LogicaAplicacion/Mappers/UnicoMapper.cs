@@ -20,6 +20,7 @@ namespace LogicaAplicacion.Mappers
                 UsuarioId = dto.UsuarioId,
                 Descripcion = dto.Descripcion,
                 Monto = dto.Monto,
+                SaldoPendiente = dto.SaldoPendiente,
                 FechaDePago = dto.FechaDePago,
                 NumeroDeRecibo = dto.NumeroDeRecibo
             };
@@ -35,6 +36,7 @@ namespace LogicaAplicacion.Mappers
                 Usuario = UsuarioMapper.ToDTO(entidad.Usuario),
                 Descripcion = entidad.Descripcion,
                 Monto = entidad.Monto,
+                SaldoPendiente  = entidad.SaldoPendiente,
                 FechaDePago = entidad.FechaDePago,
                 NumeroDeRecibo = entidad.NumeroDeRecibo
             };

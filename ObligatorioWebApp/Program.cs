@@ -46,6 +46,7 @@ namespace ObligatorioWebApp
             builder.Services.AddScoped<IObtenerTipoGastoPorId, ObtenerTipoGastoPorIdCU>();
             builder.Services.AddScoped<IObtenerUsuarioPorId, ObtenerUsuarioPorIdCU>();
             builder.Services.AddScoped<IObtenerPagos, ObtenerPagosCU>();
+            builder.Services.AddScoped<IObtenerTipoGastoPorId, ObtenerTipoGastoPorIdCU>();
 
 
             var app = builder.Build();

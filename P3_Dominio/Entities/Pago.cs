@@ -27,6 +27,7 @@ namespace P3_Dominio.Entities
         public string Descripcion { get; set; }
         [Required(ErrorMessage = "El campo monto no puede estar vacío.")]
         public double Monto { get; set; }
+        public double SaldoPendiente { get; set; }
 
         public Pago() { }
         public Pago(int id, MetodoDePago metodoDePago, TipoGasto tipoGasto, Usuario usuario, string descripcion, double monto)
@@ -37,6 +38,7 @@ namespace P3_Dominio.Entities
             Usuario = usuario;
             Descripcion = descripcion;
             Monto = monto;
+            SaldoPendiente = 0;
         }
 
         public virtual void Validar()

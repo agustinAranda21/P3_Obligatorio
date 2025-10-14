@@ -1,0 +1,67 @@
+﻿@using LogicaAplicacion.DTOs
+@model List<LogicaAplicacion.DTOs.PagoDTO>
+
+@if (ViewBag.error!= null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.error
+    </div>
+}
+
+@if (Context.Session.GetString("usuarioRol") == "Gerente")
+{
+    <form method="post">
+        <div class="form-group">
+            <input type="month" name="unaFecha" id="fechaId" class="form-control"/>
+            <button type="submit" class="btn btn-primary">Ver listado por mes</button>
+        </div>
+    </form>
+    
+    <h2>Listado de pagos</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Metodo de pago</th>
+                <th>Tipo de gasto</th>
+                <th>Usuario</th>
+                <th>Descricion</th>
+                <th>Monto</th>
+                <th>Fecha</th>
+                <th>Numero recibo</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th>Saldo pendiente</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (PagoDTO pago in Model)
+            {
+                <tr>
+                    <td>@pago.Id</td>
+                    <td>@pago.MetodoDePago</td>
+                    <td>@pago.TipoGasto.Nombre</td>
+                    <td>@pago.Usuario.Apellido</td>
+                    <td>@pago.Descripcion</td>
+                    <td>@pago.Monto</td>
+                    @if(pago is UnicoDTO unico)
+                    {
+                        <td>@unico.FechaDePago</td>
+                        <td>@unico.NumeroDeRecibo</td>
+                        <td>-</td>
+                        <td>-</td>
+                    }
+                    else if(pago is RecurrenteDTO recurrente) 
+                    {
+                        <td>-</td>
+                        <td>-</td>
+                        <td>@recurrente.Desde</td>
+                        <td>@recurrente.Hasta</td>
+                    }
+                    <td>@pago.SaldoPendiente</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

@@ -43,7 +43,7 @@ namespace AccessDataLogic.Entity_Framework.Repositorios
 
         public Pago FindById(int id)
         {
-            throw new NotImplementedException();
+            return _context.pagos.Where(p => p.Id == id).FirstOrDefault(); ;
         }
 
         public void Remove(int id)

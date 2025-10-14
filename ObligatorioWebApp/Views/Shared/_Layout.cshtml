@@ -26,7 +26,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                         }
-                        @if (!string.IsNullOrEmpty(Context.Session.GetString("usuario")))
+                        @if (!string.IsNullOrEmpty(Context.Session.GetString("usuario")) && Context.Session.GetString("usuarioRol").Equals("Administrador"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="TipoGasto" asp-action="Index">Administrar tipos de gasto</a>
@@ -58,7 +58,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - ObligatorioWebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> - Agustín Aranda/Programación 3/N3A REM
+            &copy; 2025 - ObligatorioWebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> - Agustín Aranda - Julieta Monteverde | Programación 3 | N3A REM
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

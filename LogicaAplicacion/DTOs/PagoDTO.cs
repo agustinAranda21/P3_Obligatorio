@@ -25,5 +25,7 @@ namespace LogicaAplicacion.DTOs
         public string Descripcion { get; set; }
         [Required(ErrorMessage = "El campo monto no puede estar vacío.")]
         public double Monto { get; set; }
+
+        public double SaldoPendiente { get; set; }
     }
 }

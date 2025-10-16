@@ -12,13 +12,13 @@ namespace LogicaAplicacion.DTOs
     public abstract class PagoDTO
     {
         public int Id { get; set; }
-        public MetodoDePagoDTO MetodoDePago { get; set; }
+        public MetodoDePagoDTO? MetodoDePago { get; set; }
         
         public int TipoGastoId { get; set; }
         public int UsuarioId { get; set; }
         
-        public TipoGastoDTO TipoGasto { get; set; }
-        public UsuarioDTO Usuario { get; set; }
+        public TipoGastoDTO? TipoGasto { get; set; }
+        public UsuarioDTO? Usuario { get; set; }
         
         [Required(ErrorMessage = "El campo descripción no puede estar vacío.")]
         [StringLength(50, MinimumLength = 6)]

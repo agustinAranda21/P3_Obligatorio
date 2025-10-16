@@ -39,12 +39,20 @@
                             </li>
                         }
 
+                        @if (!string.IsNullOrEmpty(Context.Session.GetString("usuario")) && (Context.Session.GetString("usuarioRol").Equals("Administrador") || Context.Session.GetString("usuarioRol").Equals("Gerente")))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">Administrar usuarios</a>
+                            </li>
+                        }
+
                         @if(!string.IsNullOrEmpty(Context.Session.GetString("usuario")))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Logout">Logout</a>
                             </li>
                         }
+
                     </ul>
                 </div>
             </div>

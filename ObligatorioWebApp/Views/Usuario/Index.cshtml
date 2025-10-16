@@ -1,0 +1,40 @@
+﻿@using LogicaAplicacion.DTOs
+@model List<LogicaAplicacion.DTOs.UsuarioDTO>
+
+@if (Context.Session.GetString("usuarioRol") == "Gerente")
+{
+    <h2>Listado de usuarios según monto (RF6)</h2>
+    <p>
+        <a asp-controller="Usuario" asp-action="ListarUsuariosMonto">Ver listado</a>
+    </p>
+}
+
+@if (Context.Session.GetString("usuarioRol") == "Administrador" || Context.Session.GetString("usuarioRol") == "Gerente")
+{
+    <h2>Listado de todos los usuarios</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Equipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (UsuarioDTO usuario in Model)
+            {
+                <tr>
+                    <td>@usuario.Id</td>
+                    <td>@usuario.Nombre</td>
+                    <td>@usuario.Apellido</td>
+                    <td>@usuario.Email</td>
+                    <td>@usuario.RolDeUsuario.TipoRol</td>
+                    <td>@usuario.Equipo.Nombre</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -70,7 +70,6 @@ namespace ObligatorioWebApp.Controllers
                 {
                     Metodo = (MetodoDePagoEnum)metodoDePagoId
                 };
-                
                 pago.TipoGastoId = tipoGastoId;
                 pago.UsuarioId = usuarioId;
 
@@ -122,7 +121,6 @@ namespace ObligatorioWebApp.Controllers
                 {
                     Metodo = (MetodoDePagoEnum)metodoDePagoId
                 };
-
                 pago.TipoGastoId = tipoGastoId;
                 pago.UsuarioId = usuarioId;
 

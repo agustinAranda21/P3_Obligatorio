@@ -1,0 +1,59 @@
+﻿@using LogicaAplicacion.DTOs
+@model List<UsuarioDTO>
+
+    @if(!string.IsNullOrEmpty(Context.Session.GetString("usuarioRol")) && Context.Session.GetString("usuarioRol").Equals("Gerente") )
+    {
+<form method="post">
+    <div class="form-group">
+        <label for="IdMonto">Monto: </label>
+        <input type="number" class="form-control" name="unMonto" id="IdMonto" placeholder="Monto" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Listar</button>
+</form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Equipo</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (UsuarioDTO usuario in Model)
+            {
+                <tr>
+                    <td>@usuario.Id</td>
+                    <td>@usuario.Nombre</td>
+                    <td>@usuario.Apellido</td>
+                    <td>@usuario.Email</td>
+                    <td>@usuario.RolDeUsuario.TipoRol</td>
+                    <td>@usuario.Equipo.Nombre</td>
+                </tr>
+            }
+    </tbody>
+</table>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-info" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+    }
+} else
+{
+    <div class="alert alert-danger" role="alert">
+        <p>No tienes permisos para acceder a esta funcionalidad.</p>
+    </div>
+}
+

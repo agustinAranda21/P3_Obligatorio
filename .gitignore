@@ -1,1 +1,4 @@
+# Ignorar carpetas de compilación y Visual Studio
+**/obj/
+**/bin/
 .vs/

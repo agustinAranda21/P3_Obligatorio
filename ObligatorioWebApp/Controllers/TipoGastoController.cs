@@ -7,6 +7,7 @@ using LogicaAplicacion.InterfacesCU.InterfacesUsuarios;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ObligatorioWebApp.Filters;
 using P3_Dominio.Entities;
 
 namespace ObligatorioWebApp.Controllers
@@ -32,7 +33,8 @@ namespace ObligatorioWebApp.Controllers
             _obtenerPorId = obtenerPorId;
             _obtenerPagos = obtenerPagos;
         }
-
+        [LogueadoFilter]
+        [AdministradorFilter]
         public IActionResult Index()
         {
             IEnumerable<TipoGastoDTO> lista = _obtener.FindAll();
@@ -40,7 +42,8 @@ namespace ObligatorioWebApp.Controllers
             return View(listaTipos);
         }
 
-        // GET: TipoGastoController
+        [LogueadoFilter]
+        [AdministradorFilter]
         public IActionResult AddTipoGasto()
         {
             if(HttpContext.Session.GetString("usuarioRol") != "Administrador")
@@ -50,6 +53,8 @@ namespace ObligatorioWebApp.Controllers
             return View();
         }
 
+        [LogueadoFilter]
+        [AdministradorFilter]
         [HttpPost]
         public IActionResult AddTipoGasto(TipoGastoDTO nuevoDto)
         {
@@ -75,6 +80,8 @@ namespace ObligatorioWebApp.Controllers
             }
         }
 
+        [LogueadoFilter]
+        [AdministradorFilter]
         public IActionResult EliminarTipoGasto()
         {
             if (HttpContext.Session.GetString("usuarioRol") != "Administrador")
@@ -84,6 +91,9 @@ namespace ObligatorioWebApp.Controllers
             IEnumerable<TipoGastoDTO> lista = _obtener.FindAll();
             return View(lista);
         }
+
+        [LogueadoFilter]
+        [AdministradorFilter]
         [HttpPost]
         public IActionResult EliminarTipoGasto(TipoGastoDTO dto)
         {
@@ -118,6 +128,8 @@ namespace ObligatorioWebApp.Controllers
             }
         }
 
+        [LogueadoFilter]
+        [AdministradorFilter]
         public IActionResult EditarTipoGasto()
         {
             if (HttpContext.Session.GetString("usuarioRol") != "Administrador")
@@ -128,6 +140,8 @@ namespace ObligatorioWebApp.Controllers
             return View(lista);
         }
 
+        [LogueadoFilter]
+        [AdministradorFilter]
         [HttpPost]
         public IActionResult EditarTipoGasto(TipoGastoDTO dto)
         {

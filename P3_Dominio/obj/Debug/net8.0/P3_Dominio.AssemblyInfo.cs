@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("P3_Dominio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4b4404d9cfe1dd8df55feed5e7afbe8aab47bdc")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f585640f07399234377a4b0f99ecbc11476f3ae")]
->>>>>>> master
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e35fbdc99e78bbfa161b7051d823aaeb8f6d57b")]
 [assembly: System.Reflection.AssemblyProductAttribute("P3_Dominio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("P3_Dominio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

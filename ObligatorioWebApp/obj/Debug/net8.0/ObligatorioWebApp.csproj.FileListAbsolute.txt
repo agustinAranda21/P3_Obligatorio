@@ -404,8 +404,8 @@ C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\ObligatorioWebApp\obj\De
 C:\Users\agust\Desktop\PrimeraPreentrega\P3_Obligatorio\ObligatorioWebApp\obj\Debug\net8.0\ObligatorioWebApp.sourcelink.json
 C:\Users\agust\Desktop\ObligatorioooP3\P3_Obligatorio\ObligatorioWebApp\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\agust\Desktop\ObligatorioooP3\P3_Obligatorio\ObligatorioWebApp\bin\Debug\net8.0\appsettings.json
-C:\Users\agust\Desktop\ObligatorioooP3\P3_Obligatorio\ObligatorioWebApp\bin\Debug\net8.0\ObligatorioWebApp.staticwebassets.endpoints.json
 C:\Users\agust\Desktop\ObligatorioooP3\P3_Obligatorio\ObligatorioWebApp\bin\Debug\net8.0\ObligatorioWebApp.staticwebassets.runtime.json
+C:\Users\agust\Desktop\ObligatorioooP3\P3_Obligatorio\ObligatorioWebApp\bin\Debug\net8.0\ObligatorioWebApp.staticwebassets.endpoints.json
 C:\Users\agust\Desktop\ObligatorioooP3\P3_Obligatorio\ObligatorioWebApp\bin\Debug\net8.0\ObligatorioWebApp.exe
 C:\Users\agust\Desktop\ObligatorioooP3\P3_Obligatorio\ObligatorioWebApp\bin\Debug\net8.0\ObligatorioWebApp.deps.json
 C:\Users\agust\Desktop\ObligatorioooP3\P3_Obligatorio\ObligatorioWebApp\bin\Debug\net8.0\ObligatorioWebApp.runtimeconfig.json

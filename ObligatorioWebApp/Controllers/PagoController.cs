@@ -3,6 +3,7 @@ using LogicaAplicacion.InterfacesCU.InterfacesPago;
 using LogicaAplicacion.InterfacesCU.InterfacesTipoGasto;
 using LogicaAplicacion.InterfacesCU.InterfacesUsuarios;
 using Microsoft.AspNetCore.Mvc;
+using ObligatorioWebApp.Filters;
 using ObligatorioWebApp.ViewModels;
 using P3_Dominio.Enums;
 
@@ -27,6 +28,7 @@ namespace ObligatorioWebApp.Controllers
             _obtenerPagos = obtenerPagos;
         }
 
+        [LogueadoFilter]
         public IActionResult Index()
         {
             IEnumerable<PagoDTO> pagos = _obtenerPagos.ObtenerPagos();
@@ -34,6 +36,7 @@ namespace ObligatorioWebApp.Controllers
             return View(listaPagos);
         }
 
+        [LogueadoFilter]
         public IActionResult AddPagoUnico()
         {
             IEnumerable<TipoGastoDTO> tiposGasto = _tiposGasto.FindAll();
@@ -48,6 +51,7 @@ namespace ObligatorioWebApp.Controllers
             return View(viewModel);
         }
 
+        [LogueadoFilter]
         [HttpPost]
         public IActionResult AddPagoUnico(UnicoDTO pago)
         {
@@ -83,7 +87,8 @@ namespace ObligatorioWebApp.Controllers
                 return View(viewModel);
             }
         }
-        
+
+        [LogueadoFilter]
         public IActionResult AddPagoRecurrente()
         {
             IEnumerable<UsuarioDTO> usuarios = _usuarios.ObtenerUsuarios();
@@ -98,6 +103,7 @@ namespace ObligatorioWebApp.Controllers
             return View(viewModel);
         }
 
+        [LogueadoFilter]
         [HttpPost]
         public IActionResult AddPagoRecurrente(RecurrenteDTO pago)
         {
@@ -133,8 +139,10 @@ namespace ObligatorioWebApp.Controllers
                 ViewBag.Error = "Error, verifique los datos.";
                 return View(viewModel);
             }
-        }  
+        }
 
+        [LogueadoFilter]
+        [GerenteFilter]
         public IActionResult ListadoMensual()
         {
             if (HttpContext.Session.GetString("usuarioRol") != "Gerente")
@@ -146,6 +154,8 @@ namespace ObligatorioWebApp.Controllers
             return View(pagosPorFecha);
         }
 
+        [LogueadoFilter]
+        [GerenteFilter]
         [HttpPost]
         public IActionResult ListadoMensual(DateTime unaFecha)
         {

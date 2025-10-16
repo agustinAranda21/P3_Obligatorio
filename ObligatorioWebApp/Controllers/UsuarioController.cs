@@ -26,6 +26,7 @@ namespace ObligatorioWebApp.Controllers
         }
 
         [LogueadoFilter]
+        [GerenteFilter]
         public IActionResult ListarUsuariosMonto()
         {
             string usuarioRol = HttpContext.Session.GetString("usuarioRol");
@@ -41,6 +42,7 @@ namespace ObligatorioWebApp.Controllers
 
         [HttpPost]
         [LogueadoFilter]
+        [GerenteFilter]
         public IActionResult ListarUsuariosMonto(double unMonto)
         {
             string usuarioRol = HttpContext.Session.GetString("usuarioRol");

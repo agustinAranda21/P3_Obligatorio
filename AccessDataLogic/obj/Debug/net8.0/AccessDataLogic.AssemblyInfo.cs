@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AccessDataLogic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4b4404d9cfe1dd8df55feed5e7afbe8aab47bdc")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f585640f07399234377a4b0f99ecbc11476f3ae")]
+>>>>>>> master
 [assembly: System.Reflection.AssemblyProductAttribute("AccessDataLogic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AccessDataLogic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

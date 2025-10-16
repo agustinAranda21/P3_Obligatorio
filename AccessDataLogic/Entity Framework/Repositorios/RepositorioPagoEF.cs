@@ -43,7 +43,12 @@ namespace AccessDataLogic.Entity_Framework.Repositorios
 
         public Pago FindById(int id)
         {
-            return _context.pagos.Where(p => p.Id == id).FirstOrDefault(); ;
+            return _context.pagos
+                .Include(p => p.TipoGasto)
+                .Include(p => p.Usuario).ThenInclude(u => u.Equipo)
+                .Include(p => p.MetodoDePago)
+                .Where(p => p.Id == id)
+                .FirstOrDefault();
         }
 
         public void Remove(int id)

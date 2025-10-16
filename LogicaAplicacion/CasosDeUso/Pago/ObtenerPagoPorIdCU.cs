@@ -24,6 +24,12 @@ namespace LogicaAplicacion.CasosDeUso.Pago
         {
             var pago = _repo.FindById(id);
 
+            
+            if (pago == null)
+            {
+                return null;
+            }
+
             if (pago is Unico pagoUnico)
             {
                 return UnicoMapper.ToDTO(pagoUnico);

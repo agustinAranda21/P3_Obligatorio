@@ -35,14 +35,7 @@ namespace P3_Dominio.Entities
 
         public void Validar()
         {
-            try
-            {
                 this.Nombre.Validar();
-            }
-            catch (TipoGastoException ex)
-            {
-                throw new Exception("Tipo de gasto inválido.", ex);
-            }
         }
 
         public override bool Equals(object? obj)

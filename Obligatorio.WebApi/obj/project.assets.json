@@ -2800,10 +2800,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "AccessDataLogic": "1.0.0",
           "LogicaAplicacion": "1.0.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.7",
-          "P3_Dominio": "1.0.0"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.7"
         },
         "compile": {
           "bin/placeholder/ObligatorioWebApp.dll": {}

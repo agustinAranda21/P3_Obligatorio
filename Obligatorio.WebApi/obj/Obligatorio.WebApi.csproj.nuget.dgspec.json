@@ -275,14 +275,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\agust\\Desktop\\ObligatorioooP3\\P3_Obligatorio\\AccessDataLogic\\AccessDataLogic.csproj": {
-                "projectPath": "C:\\Users\\agust\\Desktop\\ObligatorioooP3\\P3_Obligatorio\\AccessDataLogic\\AccessDataLogic.csproj"
-              },
               "C:\\Users\\agust\\Desktop\\ObligatorioooP3\\P3_Obligatorio\\LogicaAplicacion\\LogicaAplicacion.csproj": {
                 "projectPath": "C:\\Users\\agust\\Desktop\\ObligatorioooP3\\P3_Obligatorio\\LogicaAplicacion\\LogicaAplicacion.csproj"
-              },
-              "C:\\Users\\agust\\Desktop\\ObligatorioooP3\\P3_Obligatorio\\P3_Dominio\\P3_Dominio.csproj": {
-                "projectPath": "C:\\Users\\agust\\Desktop\\ObligatorioooP3\\P3_Obligatorio\\P3_Dominio\\P3_Dominio.csproj"
               }
             }
           }

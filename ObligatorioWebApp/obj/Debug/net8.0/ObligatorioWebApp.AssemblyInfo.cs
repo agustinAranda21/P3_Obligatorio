@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ObligatorioWebApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6e35fbdc99e78bbfa161b7051d823aaeb8f6d57b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dfea986a6129ac9ef0f4ec477a701865549e0733")]
 [assembly: System.Reflection.AssemblyProductAttribute("ObligatorioWebApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ObligatorioWebApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

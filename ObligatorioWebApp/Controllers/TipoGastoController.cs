@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ObligatorioWebApp.Filters;
 using P3_Dominio.Entities;
+using P3_Dominio.Exceptions;
 
 namespace ObligatorioWebApp.Controllers
 {
@@ -70,12 +71,12 @@ namespace ObligatorioWebApp.Controllers
                     Usuario = HttpContext.Session.GetString("usuarioApellido") 
                 }; 
                 _auditoria.Add(auditoria);
-                ViewBag.Mensaje = "Tipo de gasto creado con éxiito.";
+                ViewBag.Mensaje = "Tipo de gasto creado con éxito.";
                 return View();
             }
-            catch (Exception ex)
+            catch (TipoGastoException ex)
             {
-                ViewBag.Error = "Sucedió un error inesperado";
+                ViewBag.Error = "Error relacionado con los tipos de gasto: " + ex.Message;
                 return View();
             }
         }
@@ -84,12 +85,21 @@ namespace ObligatorioWebApp.Controllers
         [AdministradorFilter]
         public IActionResult EliminarTipoGasto()
         {
-            if (HttpContext.Session.GetString("usuarioRol") != "Administrador")
+            try
             {
-                return RedirectToAction("Index", "Home");
+                if (HttpContext.Session.GetString("usuarioRol") != "Administrador")
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                IEnumerable<TipoGastoDTO> lista = _obtener.FindAll();
+                return View(lista);
             }
-            IEnumerable<TipoGastoDTO> lista = _obtener.FindAll();
-            return View(lista);
+            catch (TipoGastoException ex)
+            {
+                ViewBag.Error = "Error relacionado con los tipos de gasto: " + ex.Message;
+                return View();
+
+            }
         }
 
         [LogueadoFilter]
@@ -121,9 +131,9 @@ namespace ObligatorioWebApp.Controllers
                     ViewBag.Mensaje = "Tipo de gasto eliminado con éxito.";
                 return View(lista);
             }
-            catch (Exception ex)
+            catch (TipoGastoException ex)
             {
-                ViewBag.Error = "Sucedió un error inesperado";
+                ViewBag.Error = "Error relacionado con los tipos de gasto: " + ex.Message;
                 return View();
             }
         }
@@ -132,13 +142,21 @@ namespace ObligatorioWebApp.Controllers
         [AdministradorFilter]
         public IActionResult EditarTipoGasto()
         {
-            if (HttpContext.Session.GetString("usuarioRol") != "Administrador")
+            try
             {
-                return RedirectToAction("Index", "Home");
+                if (HttpContext.Session.GetString("usuarioRol") != "Administrador")
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                IEnumerable<TipoGastoDTO> lista = _obtener.FindAll();
+                return View(lista);
             }
-            IEnumerable<TipoGastoDTO> lista = _obtener.FindAll();
-            return View(lista);
-        }
+            catch (TipoGastoException ex)
+            {
+                ViewBag.Error = "Error relacionado con los tipos de gasto: " + ex.Message;
+                return View();
+            }
+            }
 
         [LogueadoFilter]
         [AdministradorFilter]
@@ -158,11 +176,12 @@ namespace ObligatorioWebApp.Controllers
                     Usuario = HttpContext.Session.GetString("usuarioApellido")
                 };
                 _auditoria.Add(auditoria);
+                ViewBag.Message = "Tipo de gasto editado con éxito.";
                 return View(lista);
             }
-            catch (Exception ex)
+            catch (TipoGastoException ex)
             {
-                ViewBag.Error = "Sucedió un error inesperado";
+                ViewBag.Error = "Error relacionado con los tipos de gasto: " + ex.Message;
                 IEnumerable<TipoGastoDTO> lista = _obtener.FindAll();
                 return View(lista);
             }

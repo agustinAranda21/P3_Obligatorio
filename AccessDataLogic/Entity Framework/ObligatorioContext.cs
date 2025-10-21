@@ -22,15 +22,6 @@ namespace AccessDataLogic.Entity_Framework
     : base(options)
         {
         }
-
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            //  Esto es lo que hace que MetodoDePago sea un tipo "embebido"
-            modelBuilder.Entity<Pago>().OwnsOne(p => p.MetodoDePago);
-        }
     } 
 
 }

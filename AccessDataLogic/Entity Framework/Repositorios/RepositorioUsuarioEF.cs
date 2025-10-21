@@ -21,7 +21,17 @@ namespace AccessDataLogic.Entity_Framework.Repositorios
         }
         public void Add(Usuario nuevo)
         {
-            throw new NotImplementedException();
+            Random random = new Random();
+            string numeroAleatorio = random.Next(0, 1000).ToString();
+
+            if (_context.usuarios.Any(u => u.Email == nuevo.Email))
+            {
+                nuevo.Email += numeroAleatorio;
+            }
+
+            nuevo.Validar();
+            _context.usuarios.Add(nuevo);
+            _context.SaveChanges();
         }
 
         public IEnumerable<Usuario> FindAll()

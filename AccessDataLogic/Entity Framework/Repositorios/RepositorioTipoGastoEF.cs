@@ -21,6 +21,7 @@ namespace AccessDataLogic.Entity_Framework.Repositorios
 
         public void Add(TipoGasto nuevo)
         {
+            nuevo.Validar();
             _context.tipoGastos.Add(nuevo);
             _context.SaveChanges();
         }

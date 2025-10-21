@@ -11,6 +11,10 @@
 
 @if (Context.Session.GetString("usuarioRol") == "Administrador" || Context.Session.GetString("usuarioRol") == "Gerente")
 {
+    <p>
+        <a asp-controller="Usuario" asp-action="AltaUsuario">Alta usuario</a>
+    </p>
+
     <h2>Listado de todos los usuarios</h2>
     <table class="table">
         <thead>

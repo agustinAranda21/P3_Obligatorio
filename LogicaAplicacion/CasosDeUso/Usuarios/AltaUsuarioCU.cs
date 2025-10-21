@@ -1,6 +1,7 @@
 ﻿using LogicaAplicacion.DTOs;
 using LogicaAplicacion.InterfacesCU.InterfacesUsuarios;
 using LogicaAplicacion.Mappers;
+using P3_Dominio.Entities;
 using P3_Dominio.RepositoryInterfaces;
 using System;
 using System.Collections.Generic;
@@ -10,19 +11,18 @@ using System.Threading.Tasks;
 
 namespace LogicaAplicacion.CasosDeUso.Usuarios
 {
-    public class ObtenerUsuariosCU : IObtenerUsuarios
+    public class AltaUsuarioCU : IAddUsuario
     {
-
         private IRepositorioUsuario _repositorio;
-
-        public ObtenerUsuariosCU(IRepositorioUsuario repositorio)
+        public AltaUsuarioCU(IRepositorioUsuario repositorio)
         {
             _repositorio = repositorio;
         }
 
-        public IEnumerable<UsuarioDTO> ObtenerUsuarios()
+        public void AltaUsuario(UsuarioDTO usuario)
         {
-            return _repositorio.FindAll().Select(user => UsuarioMapper.ToDTO(user)).ToList();
+            Usuario nuevo = UsuarioMapper.FromDTO(usuario);
+            _repositorio.Add(nuevo);
         }
     }
 }

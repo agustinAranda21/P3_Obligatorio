@@ -34,17 +34,17 @@ namespace P3_Dominio.ValueObjects.UsuarioVO
 
         private void NombreValidado()
         {
-            if (string.IsNullOrEmpty(this.Nombre) || this.Nombre.Length < 2)
+            if (string.IsNullOrEmpty(this.Nombre) || this.Nombre.Trim().Length < 2)
             {
-                throw new UsuarioException("El campo nombre no puede estar vacío.");
+                throw new UsuarioException("El campo nombre no puede estar vacío ni tener una longitud menor a 2 caracteres.");
             }
         }
 
         private void ApellidoValidado()
         {
-            if(string.IsNullOrEmpty(this.Apellido) || this.Apellido.Length < 2)
+            if(string.IsNullOrEmpty(this.Apellido) || this.Apellido.Trim().Length < 2)
             {
-                throw new UsuarioException("El campo apellido no puede estar vacío.");
+                throw new UsuarioException("El campo apellido no puede estar vacío ni tener una longitud menor a 2 caracteres.");
             }
         }
     }

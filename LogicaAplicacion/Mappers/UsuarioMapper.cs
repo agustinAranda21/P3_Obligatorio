@@ -20,7 +20,7 @@ namespace LogicaAplicacion.Mappers
                 PasswordValidada = new Password(dto.Clave),
                 Email = dto.Email,
                 RolDeUsuario = RolMapper.FromDTO(dto.RolDeUsuario),
-                Equipo = EquipoMapper.FromDTO(dto.Equipo)
+                EquipoId = dto.EquipoId
             };
         }
 

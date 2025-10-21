@@ -30,9 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AccessDataLogic\AccessDataLogic.csproj" />
     <ProjectReference Include="..\LogicaAplicacion\LogicaAplicacion.csproj" />
-    <ProjectReference Include="..\P3_Dominio\P3_Dominio.csproj" />
   </ItemGroup>
 
 </Project>

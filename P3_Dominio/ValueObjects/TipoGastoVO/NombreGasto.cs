@@ -29,7 +29,7 @@ namespace P3_Dominio.ValueObjects.Tipo_GastoVO
 
         private void ValidarNombre()
         {
-            if(string.IsNullOrEmpty(this.Nombre) || this.Nombre.Length < 2)
+            if(string.IsNullOrEmpty(this.Nombre) || this.Nombre.Trim().Length < 2)
             {
                 throw new TipoGastoException("Nombre no puede ser vacío ni tener longitud menor a 2 caracteres.");
             } 

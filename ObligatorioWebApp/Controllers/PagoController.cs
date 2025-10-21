@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using ObligatorioWebApp.Filters;
 using ObligatorioWebApp.ViewModels;
 using P3_Dominio.Enums;
+using P3_Dominio.Exceptions;
 
 namespace ObligatorioWebApp.Controllers
 {
@@ -31,59 +32,77 @@ namespace ObligatorioWebApp.Controllers
         [LogueadoFilter]
         public IActionResult Index()
         {
-            IEnumerable<PagoDTO> pagos = _obtenerPagos.ObtenerPagos();
-            List<PagoDTO> listaPagos = pagos.ToList();
-            return View(listaPagos);
+            try
+            {
+                IEnumerable<PagoDTO> pagos = _obtenerPagos.ObtenerPagos();
+                List<PagoDTO> listaPagos = pagos.ToList();
+                return View(listaPagos);
+            } catch (PagoException ex)
+            {
+                ViewBag.Error = "Error relacionado con los pagos: " + ex.Message;
+                return View(new List<PagoDTO>());
+            }
+
         }
 
         [LogueadoFilter]
         public IActionResult AddPagoUnico()
         {
-            IEnumerable<TipoGastoDTO> tiposGasto = _tiposGasto.FindAll();
-            IEnumerable<UsuarioDTO> usuarios = _usuarios.ObtenerUsuarios();
+ 
+                IEnumerable<TipoGastoDTO> tiposGasto = _tiposGasto.FindAll();
+                IEnumerable<UsuarioDTO> usuarios = _usuarios.ObtenerUsuarios();
 
-            AddPagoViewModel viewModel = new AddPagoViewModel
-            {
-                TiposGasto = tiposGasto,
-                Usuarios = usuarios
-            };
+                AddPagoViewModel viewModel = new AddPagoViewModel
+                {
+                    TiposGasto = tiposGasto,
+                    Usuarios = usuarios,
+                    FechaDePago = DateTime.Today
+                };
 
-            return View(viewModel);
+                return View(viewModel);
+
         }
 
         [LogueadoFilter]
         [HttpPost]
-        public IActionResult AddPagoUnico(UnicoDTO pago)
+        public IActionResult AddPagoUnico(AddPagoViewModel model)
         {
+     
+
             IEnumerable<TipoGastoDTO> tiposGasto = _tiposGasto.FindAll();
             IEnumerable<UsuarioDTO> usuarios = _usuarios.ObtenerUsuarios();
 
             AddPagoViewModel viewModel = new AddPagoViewModel
             {
                 TiposGasto = tiposGasto,
-                Usuarios = usuarios
+                Usuarios = usuarios,
+                FechaDePago = DateTime.Today
             };
 
             try
             {
-                int metodoDePagoId = Convert.ToInt32(Request.Form["MetodoDePago"]);
-                int tipoGastoId = Convert.ToInt32(Request.Form["TipoGasto"]);
-                int usuarioId = Convert.ToInt32(Request.Form["Usuario"]);
+                model.TiposGasto = tiposGasto;
+                model.Usuarios = usuarios;
 
-                pago.MetodoDePago = new MetodoDePagoDTO
+                UnicoDTO nuevo = new UnicoDTO()
                 {
-                    Metodo = (MetodoDePagoEnum)metodoDePagoId
+                    MetodoDePago = new MetodoDePagoDTO { Metodo = model.MetodoDePago },
+                    TipoGastoId = model.TipoGastoId,
+                    UsuarioId = model.UsuarioId,
+                    Descripcion = model.Descripcion,
+                    Monto = model.Monto,
+                    SaldoPendiente = 0,
+                    FechaDePago = model.FechaDePago,
+                    NumeroDeRecibo = model.NumeroDeRecibo
                 };
-                pago.TipoGastoId = tipoGastoId;
-                pago.UsuarioId = usuarioId;
 
-                _pago.Add(pago);
+                _pago.Add(nuevo);
                 ViewBag.Mensaje = "Pago registrado con éxito.";
                 return View(viewModel);
             }
             catch (Exception ex)
             {
-                ViewBag.Error = "Error, verifique los datos.";
+                ViewBag.Error = "Error, verifique los datos: <br>" + ex.Message;
                 return View(viewModel);
             }
         }
@@ -97,7 +116,9 @@ namespace ObligatorioWebApp.Controllers
             AddPagoViewModel viewModel = new AddPagoViewModel
             {
                 TiposGasto = tiposGasto,
-                Usuarios = usuarios
+                Usuarios = usuarios,
+                Desde = DateTime.Today,
+                Hasta = DateTime.Today
             };
 
             return View(viewModel);
@@ -105,38 +126,44 @@ namespace ObligatorioWebApp.Controllers
 
         [LogueadoFilter]
         [HttpPost]
-        public IActionResult AddPagoRecurrente(RecurrenteDTO pago)
+        public IActionResult AddPagoRecurrente(AddPagoViewModel model)
         {
+
             IEnumerable<TipoGastoDTO> tiposGasto = _tiposGasto.FindAll();
             IEnumerable<UsuarioDTO> usuarios = _usuarios.ObtenerUsuarios();
 
             AddPagoViewModel viewModel = new AddPagoViewModel
             {
                 TiposGasto = tiposGasto,
-                Usuarios = usuarios
+                Usuarios = usuarios,
+                Desde = DateTime.Today,
+                Hasta = DateTime.Today
             };
-
 
             try
             {
-                int metodoDePagoId = Convert.ToInt32(Request.Form["MetodoDePago"]);
-                int tipoGastoId = Convert.ToInt32(Request.Form["TipoGasto"]);
-                int usuarioId = Convert.ToInt32(Request.Form["Usuario"]);
+                model.TiposGasto = tiposGasto;
+                model.Usuarios = usuarios;
 
-                pago.MetodoDePago = new MetodoDePagoDTO
+                RecurrenteDTO nuevo = new RecurrenteDTO()
                 {
-                    Metodo = (MetodoDePagoEnum)metodoDePagoId
+                    MetodoDePago = new MetodoDePagoDTO { Metodo = model.MetodoDePago },
+                    TipoGastoId = model.TipoGastoId,
+                    UsuarioId = model.UsuarioId,
+                    Descripcion = model.Descripcion,
+                    Monto = model.Monto,
+                    SaldoPendiente = 0,
+                    Desde = model.Desde,
+                    Hasta = model.Hasta
                 };
-                pago.TipoGastoId = tipoGastoId;
-                pago.UsuarioId = usuarioId;
 
-                _pago.Add(pago);
+                _pago.Add(nuevo);
                 ViewBag.Mensaje = "Pago registrado con éxito.";
                 return View(viewModel);
             }
             catch (Exception ex)
             {
-                ViewBag.Error = "Error, verifique los datos.";
+                ViewBag.Error = "Error, verifique los datos: <br>" + ex.Message;
                 return View(viewModel);
             }
         }
@@ -188,41 +215,6 @@ namespace ObligatorioWebApp.Controllers
             }
 
             return View(pagosPorFecha);
-
-            /*IEnumerable<PagoDTO> pagos = _obtenerPagos.ObtenerPagos();
-            List<PagoDTO> pagosPorFecha = new List<PagoDTO>();
-            bool found = false;
-            
-            int mesSeleccionado = unaFecha.Month;
-            int añoSeleccionado = unaFecha.Year;
-
-            double saldoPendiente = 0;
-            
-            foreach (PagoDTO p in pagos)
-            {
-                if (p is UnicoDTO u && u.FechaDePago.Month == mesSeleccionado && u.FechaDePago.Year == añoSeleccionado)
-                {
-                    pagosPorFecha.Add(p);
-                    found = true;
-                }
-
-                if(p is RecurrenteDTO r && 
-                   ((r.Desde.Year < añoSeleccionado || (r.Desde.Year == añoSeleccionado && r.Desde.Month <= mesSeleccionado)) &&
-                    (r.Hasta.Year > añoSeleccionado || (r.Hasta.Year == añoSeleccionado && r.Hasta.Month >= mesSeleccionado))))
-                {
-                    double añosRestantes = r.Hasta.Year - añoSeleccionado;
-                    double mesesTotales = (añosRestantes * 12) + (r.Hasta.Month - mesSeleccionado);
-                    saldoPendiente = r.Monto * mesesTotales;
-                    p.SaldoPendiente = saldoPendiente;
-                    pagosPorFecha.Add(p);
-                    found = true;
-                }
-            }
-
-            if (!found)
-            {
-                ViewBag.Error = "No se encontraron pagos en el mes y año indicados.";
-            }*/
         }
     }
 

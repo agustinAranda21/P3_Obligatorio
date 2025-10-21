@@ -23,6 +23,7 @@ namespace LogicaAplicacion.CasosDeUso.TipoGasto
         public void Add(TipoGastoDTO unDto)
         {
             P3_Dominio.Entities.TipoGasto tipoGastoMapeado = TipoGastoMapper.FromDTO(unDto);
+            tipoGastoMapeado.Validar();
             _repo.Add(tipoGastoMapeado);
         } 
 

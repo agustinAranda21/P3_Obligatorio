@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Entity Framework\Models\AuditoriaTipoGasto.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.19" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.19">
       <PrivateAssets>all</PrivateAssets>
@@ -16,6 +20,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\P3_Dominio\P3_Dominio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entity Framework\Models\" />
   </ItemGroup>
 
 </Project>

@@ -1,10 +1,12 @@
 using AccessDataLogic.Entity_Framework;
 using AccessDataLogic.Entity_Framework.Repositorios;
 using LogicaAplicacion.CasosDeUso.AuditoriaTipoGasto;
+using LogicaAplicacion.CasosDeUso.Equipo;
 using LogicaAplicacion.CasosDeUso.Pago;
 using LogicaAplicacion.CasosDeUso.TipoGasto;
 using LogicaAplicacion.CasosDeUso.Usuarios;
 using LogicaAplicacion.InterfacesCU.InterfacesAuditoriaTipoGasto;
+using LogicaAplicacion.InterfacesCU.InterfacesEquipo;
 using LogicaAplicacion.InterfacesCU.InterfacesPago;
 using LogicaAplicacion.InterfacesCU.InterfacesTipoGasto;
 using LogicaAplicacion.InterfacesCU.InterfacesUsuarios;
@@ -32,6 +34,7 @@ namespace ObligatorioWebApp
             builder.Services.AddScoped<IRepositorioTipoGasto, RepositorioTipoGastoEF>();
             builder.Services.AddScoped<IRepositorioAuditoriaTipoGasto, RepositorioAuditoriaTipoGastoEF>();
             builder.Services.AddScoped<IRepositorioPago, RepositorioPagoEF>();
+            builder.Services.AddScoped<IRepositorioEquipo, RepositorioEquipoEF>();
 
 
             //Inicializacion de casos de uso
@@ -47,6 +50,8 @@ namespace ObligatorioWebApp
             builder.Services.AddScoped<IObtenerUsuarioPorId, ObtenerUsuarioPorIdCU>();
             builder.Services.AddScoped<IObtenerPagos, ObtenerPagosCU>();
             builder.Services.AddScoped<IObtenerTipoGastoPorId, ObtenerTipoGastoPorIdCU>();
+            builder.Services.AddScoped<IAddUsuario, AltaUsuarioCU>();
+            builder.Services.AddScoped<IObtenerEquipos, ObtenerEquiposCU>();
 
 
             var app = builder.Build();

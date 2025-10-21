@@ -22,6 +22,8 @@ namespace P3_Dominio.Entities
         [EmailAddress(ErrorMessage = "Formato de email inválido. Asegurate de que tiene un formato similar a: 'ejemplo@mail.com'")]
         public string Email { get; set; }
         public Rol RolDeUsuario { get; set; }
+        // Foreign key
+        public int EquipoId { get; set; }
         public Equipo Equipo { get; set; }
 
         public Usuario() { }
@@ -46,13 +48,15 @@ namespace P3_Dominio.Entities
             this.Equipo = equipo;
         }
 
-        public void Validar() { }
+        public void Validar()
+        {
+            this.NombreCompleto.Validar();
+            this.PasswordValidada.Validar();
+        }
 
         public override bool Equals(object? obj)
         {
-            return obj is Usuario unU && unU.Id == Id;
+            return obj is Usuario unU && unU.Email == Email;
         }
-
-        //public string GenerarEmail(){}
     }
 }

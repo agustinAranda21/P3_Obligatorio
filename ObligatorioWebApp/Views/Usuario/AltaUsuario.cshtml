@@ -1,0 +1,63 @@
+﻿@using LogicaAplicacion.DTOs
+@model ObligatorioWebApp.ViewModels.AddUsuarioViewModel
+
+<h2>Alta de Usuario</h2>
+
+<form asp-action="AltaUsuario" method="post">
+    <div>
+        <label>Nombre</label>
+        <input asp-for="Nombre" class="form-control" >
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Apellido</label>
+        <input asp-for="Apellido" class="form-control"  />
+        <span asp-validation-for="Apellido" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Contraseña</label>
+        <input asp-for="Password" type="password" class="form-control"  />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Rol</label>
+        <select asp-for="TipoRol" class="form-control" required>
+            <option value="" disabled selected>Seleccione...</option>
+            <option value="2">Gerente</option>
+            <option value="3">Empleado</option>
+        </select>
+        <span asp-validation-for="TipoRol"></span>
+    </div>
+
+    <div>
+        <label>Equipo</label>
+        <select asp-for="EquipoId" class="form-control" required>
+            <option value="" disabled selected>Seleccione...</option>
+            @foreach (EquipoDTO equipo in Model.Equipos)
+            {
+                <option value="@equipo.Id">@equipo.Nombre</option>
+            }
+        </select>
+        <span asp-validation-for="EquipoId"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Dar de alta</button>
+</form>
+
+@if (ViewBag.Mensaje != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Mensaje
+    </div>
+
+}
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}

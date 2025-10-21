@@ -17,10 +17,11 @@ namespace LogicaAplicacion.DTOs
         [Required(ErrorMessage = "El campo contraseña no puede estar vacío.")]
         public string Clave { get; set; }
         [Required(ErrorMessage = "El campo email no puede estar vacío.")]
-        [EmailAddress(ErrorMessage = "Formato de email inválido. Asegurate de que tiene un formato similar a: 'ejemplo@mail.com'")]
+        [EmailAddress(ErrorMessage = "Formato de email inválido.")]
         public string Email { get; set; }
         public RolDTO RolDeUsuario { get; set; }
         public EquipoDTO Equipo { get; set; }
+        public int EquipoId { get; set; }
 
     }
 }

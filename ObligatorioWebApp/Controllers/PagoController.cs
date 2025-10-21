@@ -55,7 +55,8 @@ namespace ObligatorioWebApp.Controllers
                 AddPagoViewModel viewModel = new AddPagoViewModel
                 {
                     TiposGasto = tiposGasto,
-                    Usuarios = usuarios
+                    Usuarios = usuarios,
+                    FechaDePago = DateTime.Today
                 };
 
                 return View(viewModel);
@@ -64,31 +65,38 @@ namespace ObligatorioWebApp.Controllers
 
         [LogueadoFilter]
         [HttpPost]
-        public IActionResult AddPagoUnico(UnicoDTO pago)
-        { 
+        public IActionResult AddPagoUnico(AddPagoViewModel model)
+        {
+     
+
             IEnumerable<TipoGastoDTO> tiposGasto = _tiposGasto.FindAll();
             IEnumerable<UsuarioDTO> usuarios = _usuarios.ObtenerUsuarios();
 
             AddPagoViewModel viewModel = new AddPagoViewModel
             {
                 TiposGasto = tiposGasto,
-                Usuarios = usuarios
+                Usuarios = usuarios,
+                FechaDePago = DateTime.Today
             };
 
             try
             {
-                int metodoDePagoId = Convert.ToInt32(Request.Form["MetodoDePago"]);
-                int tipoGastoId = Convert.ToInt32(Request.Form["TipoGasto"]);
-                int usuarioId = Convert.ToInt32(Request.Form["Usuario"]);
+                model.TiposGasto = tiposGasto;
+                model.Usuarios = usuarios;
 
-                pago.MetodoDePago = new MetodoDePagoDTO
+                UnicoDTO nuevo = new UnicoDTO()
                 {
-                    Metodo = (MetodoDePagoEnum)metodoDePagoId
+                    MetodoDePago = new MetodoDePagoDTO { Metodo = model.MetodoDePago },
+                    TipoGastoId = model.TipoGastoId,
+                    UsuarioId = model.UsuarioId,
+                    Descripcion = model.Descripcion,
+                    Monto = model.Monto,
+                    SaldoPendiente = 0,
+                    FechaDePago = model.FechaDePago,
+                    NumeroDeRecibo = model.NumeroDeRecibo
                 };
-                pago.TipoGastoId = tipoGastoId;
-                pago.UsuarioId = usuarioId;
 
-                _pago.Add(pago);
+                _pago.Add(nuevo);
                 ViewBag.Mensaje = "Pago registrado con éxito.";
                 return View(viewModel);
             }
@@ -108,7 +116,9 @@ namespace ObligatorioWebApp.Controllers
             AddPagoViewModel viewModel = new AddPagoViewModel
             {
                 TiposGasto = tiposGasto,
-                Usuarios = usuarios
+                Usuarios = usuarios,
+                Desde = DateTime.Today,
+                Hasta = DateTime.Today
             };
 
             return View(viewModel);
@@ -116,8 +126,9 @@ namespace ObligatorioWebApp.Controllers
 
         [LogueadoFilter]
         [HttpPost]
-        public IActionResult AddPagoRecurrente(RecurrenteDTO pago)
+        public IActionResult AddPagoRecurrente(AddPagoViewModel model)
         {
+
             IEnumerable<TipoGastoDTO> tiposGasto = _tiposGasto.FindAll();
             IEnumerable<UsuarioDTO> usuarios = _usuarios.ObtenerUsuarios();
 
@@ -125,22 +136,28 @@ namespace ObligatorioWebApp.Controllers
             {
                 TiposGasto = tiposGasto,
                 Usuarios = usuarios,
+                Desde = DateTime.Today,
+                Hasta = DateTime.Today
             };
 
             try
             {
-                int metodoDePagoId = Convert.ToInt32(Request.Form["MetodoDePago"]);
-                int tipoGastoId = Convert.ToInt32(Request.Form["TipoGasto"]);
-                int usuarioId = Convert.ToInt32(Request.Form["Usuario"]);
+                model.TiposGasto = tiposGasto;
+                model.Usuarios = usuarios;
 
-                pago.MetodoDePago = new MetodoDePagoDTO
+                RecurrenteDTO nuevo = new RecurrenteDTO()
                 {
-                    Metodo = (MetodoDePagoEnum)metodoDePagoId
+                    MetodoDePago = new MetodoDePagoDTO { Metodo = model.MetodoDePago },
+                    TipoGastoId = model.TipoGastoId,
+                    UsuarioId = model.UsuarioId,
+                    Descripcion = model.Descripcion,
+                    Monto = model.Monto,
+                    SaldoPendiente = 0,
+                    Desde = model.Desde,
+                    Hasta = model.Hasta
                 };
-                pago.TipoGastoId = tipoGastoId;
-                pago.UsuarioId = usuarioId;
 
-                _pago.Add(pago);
+                _pago.Add(nuevo);
                 ViewBag.Mensaje = "Pago registrado con éxito.";
                 return View(viewModel);
             }

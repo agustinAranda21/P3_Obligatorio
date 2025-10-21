@@ -22,8 +22,7 @@ namespace LogicaAplicacion.CasosDeUso.Usuarios
 
         public IEnumerable<UsuarioDTO> ObtenerUsuarios()
         {
-            return _repositorio.FindAll().
-                Select(user => UsuarioMapper.ToDTO(user)).ToList();
+            return _repositorio.FindAll().Select(user => UsuarioMapper.ToDTO(user)).ToList();
         }
     }
 }

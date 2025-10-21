@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ObligatorioWebApp.Filters;
+using ObligatorioWebApp.ViewModels;
 using P3_Dominio.Entities;
 using P3_Dominio.Exceptions;
 
@@ -57,15 +58,25 @@ namespace ObligatorioWebApp.Controllers
         [LogueadoFilter]
         [AdministradorFilter]
         [HttpPost]
-        public IActionResult AddTipoGasto(TipoGastoDTO nuevoDto)
+        public IActionResult AddTipoGasto(AddTipoGastoViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             try
             {
-                _crear.Add(nuevoDto);
+                TipoGastoDTO nuevo = new TipoGastoDTO()
+                {
+                    Nombre = model.Nombre,
+                    Descripcion = model.Descripcion
+                };
+                _crear.Add(nuevo);
                 AuditoriaTipoGastoDTO auditoria = new AuditoriaTipoGastoDTO
                 {
-                    Nombre = nuevoDto.Nombre,
-                    Descripcion = nuevoDto.Descripcion,
+                    Nombre = model.Nombre,
+                    Descripcion = model .Descripcion,
                     Accion = "Creación",
                     Fecha = DateTime.Now,
                     Usuario = HttpContext.Session.GetString("usuarioApellido") 
@@ -77,7 +88,7 @@ namespace ObligatorioWebApp.Controllers
             catch (TipoGastoException ex)
             {
                 ViewBag.Error = "Error relacionado con los tipos de gasto: " + ex.Message;
-                return View();
+                return View(model);
             }
         }
 

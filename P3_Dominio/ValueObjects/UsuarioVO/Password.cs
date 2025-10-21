@@ -27,9 +27,9 @@ namespace P3_Dominio.ValueObjects.UsuarioVO
 
         private void ValidarClave()
         {
-            if(string.IsNullOrEmpty(this.Clave) || this.Clave.Length < 6)
+            if(string.IsNullOrEmpty(this.Clave) || this.Clave.Length < 8)
             {
-                throw new UsuarioException("El campo clave no puede estar vacío.");
+                throw new UsuarioException("La contraseña no puede ser vacía ni tener una longitud menor a 8 caracteres.");
             }
         }
 

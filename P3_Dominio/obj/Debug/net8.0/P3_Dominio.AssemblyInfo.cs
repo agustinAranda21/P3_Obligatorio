@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("P3_Dominio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27d2cae349a2213fc15754c67190e242f8c273bc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+172da100b5aa12bd8361628a4f208ed88a78bc98")]
 [assembly: System.Reflection.AssemblyProductAttribute("P3_Dominio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("P3_Dominio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

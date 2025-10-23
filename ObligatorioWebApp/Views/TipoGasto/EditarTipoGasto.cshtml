@@ -5,7 +5,6 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Accion</th>
@@ -17,9 +16,7 @@
                     <form method="post">
                     <div class="form-group">
                     <tr>
-                        <td>
-                            <input typeof="hidden" name="Id" value="@tipoGasto.Id"/>
-                        </td>
+                            <input type="hidden" name="Id" value="@tipoGasto.Id"/>
                         <td>
                             <input type="text" name="Nombre" value="@tipoGasto.Nombre" class="form-control" />
                         </td>
@@ -31,8 +28,8 @@
                             <button type="submit" class="btn btn-primary">Actualizar</button>
                         </td>
                     </tr>
-            </div>
-            </form>
+                   </div>
+                   </form>
                 }
             </tbody>
         </table>

@@ -3,8 +3,8 @@
 
     <h2>Selecciona el tipo de pago que quiera registrar...</h2>
     <p>
-        <a asp-controller="Pago" asp-action="AddPagoUnico">Unico</a> -
-        <a asp-controller="Pago" asp-action="AddPagoRecurrente">Recurrente</a>
+        <a asp-controller="Pago" asp-action="AddPagoUnico" class="btn btn-secondary rounded-pill shadow-sm">Unico</a> -
+    <a asp-controller="Pago" asp-action="AddPagoRecurrente" class="btn btn-secondary rounded-pill shadow-sm">Recurrente</a>
     </p>
 
 
@@ -12,14 +12,14 @@
     {
         <h2>Lista de pagos</h2>
         <p>
-            <a asp-controller="Pago" asp-action="ListadoMensual">Ver listado</a>
+        <a asp-controller="Pago" asp-action="ListadoMensual" class="btn btn-secondary btn-sm">Ver listado</a>
         </p>
     }
 
 @if (Context.Session.GetString("usuarioRol") == "Administrador")
 {
     <h2>Listado de todos los pagos</h2>
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>

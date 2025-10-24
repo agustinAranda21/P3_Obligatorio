@@ -5,14 +5,15 @@
 {
     <h2>Listado de usuarios según monto (RF6)</h2>
     <p>
-        <a asp-controller="Usuario" asp-action="ListarUsuariosMonto">Ver listado</a>
+        <a asp-controller="Usuario" asp-action="ListarUsuariosMonto" class="link-offset-2 link-underline link-underline-opacity-50">Ver listado</a>
     </p>
 }
 
 @if (Context.Session.GetString("usuarioRol") == "Administrador" || Context.Session.GetString("usuarioRol") == "Gerente")
 {
+    <h2>Alta de usuario</h2>
     <p>
-        <a asp-controller="Usuario" asp-action="AltaUsuario">Alta usuario</a>
+        <a asp-controller="Usuario" asp-action="AltaUsuario">Crear nuevo usuario</a>
     </p>
 
     <h2>Listado de todos los usuarios</h2>

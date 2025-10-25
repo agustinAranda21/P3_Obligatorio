@@ -12,15 +12,15 @@
     {
         <h2>Lista de pagos</h2>
         <p>
-        <a asp-controller="Pago" asp-action="ListadoMensual" class="btn btn-secondary btn-sm">Ver listado</a>
+        <a asp-controller="Pago" asp-action="ListadoMensual" class="btn btn-secondary rounded-pill btn-sm">Ver listado</a>
         </p>
     }
 
 @if (Context.Session.GetString("usuarioRol") == "Administrador")
 {
     <h2>Listado de todos los pagos</h2>
-    <table class="table table-striped">
-        <thead>
+    <table class="table table-striped table-bordered table-hover table-responsive">
+        <thead class="table-dark">
             <tr>
                 <th>Id</th>
                 <th>Metodo de pago</th>

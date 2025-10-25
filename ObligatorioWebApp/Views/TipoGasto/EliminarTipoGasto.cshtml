@@ -1,9 +1,9 @@
 ﻿@using LogicaAplicacion.DTOs
 @model IEnumerable<LogicaAplicacion.DTOs.TipoGastoDTO>
 
-
-<table class="table table-striped">
-    <thead>
+<h1>Eliminar tipo de gasto</h1>
+<table class="table table-striped table-bordered table-hover table-responsive">
+    <thead class="table-dark">
         <tr>
             <th>Id</th>
             <th>Nombre</th>
@@ -29,7 +29,7 @@
                         @tipoGasto.Descripcion
                     </td>
                     <td>
-                    <button type="submit" class="btn btn-danger rounded-pill shadow-sm">Eliminar</button>
+                    <button type="submit" class="btn btn-danger rounded-pill shadow-sm"><i class="bi bi-trash-fill"> Eliminar</i></button>
                     </td>
                 </form>
             </tr>
@@ -40,13 +40,13 @@
 @if(ViewBag.Mensaje != null)
 {
     <div class="alert alert-success">
-        @ViewBag.Mensaje
+        <i class="bi bi-check-circle-fill"> @Html.Raw(ViewBag.Mensaje)</i>
     </div>
 }
 
 @if(ViewBag.Error != null)
 {
      <div class="alert alert-danger">
-            @ViewBag.Error
+        <i class="bi bi-x-circle-fill"> @Html.Raw(ViewBag.Error)</i>
         </div>
 }

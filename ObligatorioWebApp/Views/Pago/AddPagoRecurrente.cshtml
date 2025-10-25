@@ -47,19 +47,20 @@
         <label for="Hasta">Hasta</label>
         <input type="date" class="form-control" asp-for="Hasta" placeholder="Hasta" required />
     </div>
-    <button type="submit" class="btn btn-primary rounded-pill shadow-sm">Añadir</button>
+    <br>
+    <button type="submit" class="btn btn-primary rounded-pill shadow-sm"><i class="bi bi-credit-card-fill"> Añadir</i></button>
 </form>
 
 @if(ViewBag.Mensaje != null)
 {
     <div class="alert alert-success">
-        @ViewBag.Mensaje
+        <i class="bi bi-check-circle-fill"> @Html.Raw(ViewBag.Mensaje)</i>
     </div>
 }
 
 @if(ViewBag.Error != null)
 {
     <div class="alert alert-danger">
-        @Html.Raw(ViewBag.Error)
+        <i class="bi bi-x-circle-fill"> @Html.Raw(ViewBag.Error)</i>
     </div>
-}
+} 

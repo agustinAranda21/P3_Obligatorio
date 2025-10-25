@@ -43,14 +43,14 @@
         </select>
         <span asp-validation-for="EquipoId"></span>
     </div>
-
-    <button type="submit" class="btn btn-primary rounded-pill shadow-sm">Dar de alta</button>
+    <br>
+    <button type="submit" class="btn btn-primary rounded-pill shadow-sm"> <i class="bi bi-person-fill-add"> Dar de alta</i></button>
 </form>
 
 @if (ViewBag.Mensaje != null)
 {
     <div class="alert alert-success">
-        @ViewBag.Mensaje
+        <i class="bi bi-check-circle-fill"> @Html.Raw(ViewBag.Error)</i>
     </div>
 
 }
@@ -58,6 +58,6 @@
 @if (ViewBag.Error != null)
 {
     <div class="alert alert-danger">
-        @ViewBag.Error
+        <i class="bi bi-x-circle-fill"> @Html.Raw(ViewBag.Error)</i>
     </div>
 }

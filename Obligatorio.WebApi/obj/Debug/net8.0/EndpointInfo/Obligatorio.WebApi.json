@@ -5,11 +5,12 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Values/{id}": {
+    "/api/Pago/{id}": {
       "get": {
         "tags": [
-          "Values"
+          "Pago"
         ],
+        "operationId": "BuscarPorId",
         "parameters": [
           {
             "name": "id",
@@ -81,6 +82,68 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/Pago/unico": {
+      "post": {
+        "tags": [
+          "Pago"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnicoDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnicoDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnicoDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Pago/recurrente": {
+      "post": {
+        "tags": [
+          "Pago"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecurrenteDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecurrenteDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecurrenteDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -193,6 +256,60 @@
         },
         "additionalProperties": { }
       },
+      "RecurrenteDTO": {
+        "required": [
+          "descripcion",
+          "desde",
+          "hasta",
+          "monto"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "metodoDePago": {
+            "$ref": "#/components/schemas/MetodoDePagoDTO"
+          },
+          "tipoGastoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "usuarioId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoGasto": {
+            "$ref": "#/components/schemas/TipoGastoDTO"
+          },
+          "usuario": {
+            "$ref": "#/components/schemas/UsuarioDTO"
+          },
+          "descripcion": {
+            "maxLength": 50,
+            "minLength": 6,
+            "type": "string"
+          },
+          "monto": {
+            "type": "number",
+            "format": "double"
+          },
+          "saldoPendiente": {
+            "type": "number",
+            "format": "double"
+          },
+          "desde": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "hasta": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "RolDTO": {
         "type": "object",
         "properties": {
@@ -232,6 +349,60 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "UnicoDTO": {
+        "required": [
+          "descripcion",
+          "fechaDePago",
+          "monto",
+          "numeroDeRecibo"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "metodoDePago": {
+            "$ref": "#/components/schemas/MetodoDePagoDTO"
+          },
+          "tipoGastoId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "usuarioId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tipoGasto": {
+            "$ref": "#/components/schemas/TipoGastoDTO"
+          },
+          "usuario": {
+            "$ref": "#/components/schemas/UsuarioDTO"
+          },
+          "descripcion": {
+            "maxLength": 50,
+            "minLength": 6,
+            "type": "string"
+          },
+          "monto": {
+            "type": "number",
+            "format": "double"
+          },
+          "saldoPendiente": {
+            "type": "number",
+            "format": "double"
+          },
+          "fechaDePago": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "numeroDeRecibo": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
       },
       "UsuarioDTO": {
         "required": [

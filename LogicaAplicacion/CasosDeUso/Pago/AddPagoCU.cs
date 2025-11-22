@@ -26,11 +26,13 @@ namespace LogicaAplicacion.CasosDeUso.Pago
             {
                 P3_Dominio.Entities.Unico unico = UnicoMapper.FromDTO(u);
                 _repo.Add(unico);
+                unPago.Id = unico.Id;
             }
             else if (unPago is RecurrenteDTO r)
             {
                 P3_Dominio.Entities.Recurrente rec = RecurrenteMapper.FromDTO(r);
                 _repo.Add(rec);
+                unPago.Id = rec.Id;
             }
             else
             {

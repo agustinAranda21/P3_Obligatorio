@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "Obligatorio.WebApi.Controllers.ValuesController",
+    "ContainingType": "Obligatorio.WebApi.Controllers.PagoController",
     "Method": "ObtenerDetallesDeUnPago",
-    "RelativePath": "api/Values/{id}",
+    "RelativePath": "api/Pago/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -41,6 +41,39 @@
         ],
         "StatusCode": 400
       }
-    ]
+    ],
+    "EndpointName": "BuscarPorId"
+  },
+  {
+    "ContainingType": "Obligatorio.WebApi.Controllers.PagoController",
+    "Method": "AltaPagoRecurrente",
+    "RelativePath": "api/Pago/recurrente",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pago",
+        "Type": "LogicaAplicacion.DTOs.RecurrenteDTO",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Obligatorio.WebApi.Controllers.PagoController",
+    "Method": "AltaPagoUnico",
+    "RelativePath": "api/Pago/unico",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pago",
+        "Type": "LogicaAplicacion.DTOs.UnicoDTO",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

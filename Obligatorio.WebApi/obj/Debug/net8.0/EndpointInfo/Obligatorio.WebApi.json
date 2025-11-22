@@ -147,6 +147,27 @@
           }
         }
       }
+    },
+    "/api/TipoGasto": {
+      "get": {
+        "tags": [
+          "TipoGasto"
+        ],
+        "parameters": [
+          {
+            "name": "nombreTipoGasto",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {

@@ -75,5 +75,21 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Obligatorio.WebApi.Controllers.TipoGastoController",
+    "Method": "ListarAuditoriasPorUsuario",
+    "RelativePath": "api/TipoGasto",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nombreTipoGasto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

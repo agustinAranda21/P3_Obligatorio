@@ -1,6 +1,10 @@
-﻿using LogicaAplicacion.InterfacesCU.InterfacesTipoGasto;
+﻿using Humanizer;
+using LogicaAplicacion.DTOs;
+using LogicaAplicacion.InterfacesCU.InterfacesAuditoriaTipoGasto;
+using LogicaAplicacion.InterfacesCU.InterfacesTipoGasto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using P3_Dominio.Entities;
 
 namespace Obligatorio.WebApi.Controllers
 {
@@ -8,11 +12,30 @@ namespace Obligatorio.WebApi.Controllers
     [ApiController]
     public class TipoGastoController : ControllerBase
     {
-        private IObtenerTipoGastoPorId _obtenerPorId;
+        private IListarAuditoriasTipoGasto _listarAuditorias;
 
-        public TipoGastoController(IObtenerTipoGastoPorId obtenerPorId)
+        public TipoGastoController(IListarAuditoriasTipoGasto listarAuditorias)
         {
-            _obtenerPorId = obtenerPorId;
+            _listarAuditorias = listarAuditorias;
+        }
+
+        [HttpGet]
+        public IActionResult ListarAuditoriasPorUsuario(String nombreTipoGasto)
+        {
+            if (nombreTipoGasto == null) return BadRequest("No se proporcionaron datos para el alta.");
+            try
+            {
+                IEnumerable<AuditoriaTipoGastoDTO> lista = _listarAuditorias.ListarTodasLasAuditoriasTipoGasto(nombreTipoGasto);
+                return Ok(lista);
+            } catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+
+            } catch (Exception)
+            {
+                return StatusCode(500, "Error interno del servidor, intente nuevamente más tarde.");
+            }
+            
         }
     }
 }

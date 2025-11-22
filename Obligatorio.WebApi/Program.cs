@@ -1,7 +1,9 @@
 using AccessDataLogic.Entity_Framework;
 using AccessDataLogic.Entity_Framework.Repositorios;
+using LogicaAplicacion.CasosDeUso.AuditoriaTipoGasto;
 using LogicaAplicacion.CasosDeUso.Pago;
 using LogicaAplicacion.CasosDeUso.TipoGasto;
+using LogicaAplicacion.InterfacesCU.InterfacesAuditoriaTipoGasto;
 using LogicaAplicacion.InterfacesCU.InterfacesPago;
 using LogicaAplicacion.InterfacesCU.InterfacesTipoGasto;
 using Microsoft.EntityFrameworkCore;
@@ -27,8 +29,8 @@ builder.Services.AddScoped<IRepositorioAuditoriaTipoGasto, RepositorioAuditoriaT
 // Inicializacion de casos de uso.
 builder.Services.AddScoped<IObtenerPagoPorId, ObtenerPagoPorIdCU>();
 builder.Services.AddScoped<IAddPago, AddPagoCU>();
-builder.Services.AddScoped<IObtenerTipoGastoPorId, ObtenerTipoGastoPorIdCU>();
 builder.Services.AddScoped<IObtenerPagos, ObtenerPagosCU>();
+builder.Services.AddScoped<IListarAuditoriasTipoGasto, ListarAuditoriasTipoGastoCU>();
 
 
 var app = builder.Build();

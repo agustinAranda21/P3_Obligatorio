@@ -20,14 +20,10 @@ namespace LogicaAplicacion.CasosDeUso.AuditoriaTipoGasto
             this._repo = repo;
         }
 
-        public IEnumerable<AuditoriaTipoGastoDTO> ListarTodasLasAuditoriasTipoGasto(TipoGastoDTO dto)
+        public IEnumerable<AuditoriaTipoGastoDTO> ListarTodasLasAuditoriasTipoGasto(String nombre)
         {
-            String nombreTipoGasto = dto.Nombre;
-            List<P3_Dominio.Entities.AuditoriaTipoGasto> lista = _repo.FindAllPorNombreTipoGasto(nombreTipoGasto);
-            List<AuditoriaTipoGasto>
-        }
-        {
-
+            IEnumerable<P3_Dominio.Entities.AuditoriaTipoGasto> lista = _repo.FindAllPorNombreTipoGasto(nombre);
+            return lista.Select(a => AuditoriaTipoGastoMapper.ToDTO(a));
         }
     }
 }

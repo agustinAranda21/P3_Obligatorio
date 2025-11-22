@@ -9,5 +9,6 @@ namespace P3_Dominio.RepositoryInterfaces
 {
     public interface IRepositorioPago : IRepositorio<Pago>
     {
+        
     }
 }

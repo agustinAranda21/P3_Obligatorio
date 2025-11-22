@@ -48,20 +48,21 @@
         <label for="NumeroDeRecibo">Número de recibo</label>
         <input type="text" class="form-control" asp-for="NumeroDeRecibo" placeholder="Número de recibo" required />
     </div>
-    <button type="submit" class="btn btn-primary">Añadir</button>
+    <br>
+    <button type="submit" class="btn btn-primary rounded-pill shadow-sm"><i class="bi bi-credit-card-fill"> Añadir</i></button>
 </form>
 
 @if (ViewBag.Mensaje != null)
 {
     <div class="alert alert-success">
-        @ViewBag.Mensaje
+        <i class="bi bi-check-circle-fill"> @Html.Raw(ViewBag.Mensaje)</i>
     </div>
 }
 
 @if (ViewBag.Error != null)
 {
     <div class="alert alert-danger">
-        @Html.Raw(ViewBag.Error)
+        <i class="bi bi-x-circle-fill"> @Html.Raw(ViewBag.Error)</i>
     </div>
 }
 

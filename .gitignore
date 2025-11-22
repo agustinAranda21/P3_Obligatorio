@@ -1,3 +1,7 @@
+# Ignorar carpetas de compilación .NET
 bin/
 obj/
+
+# Ignorar configuraciones de Visual Studio
 .vs/
+*.user

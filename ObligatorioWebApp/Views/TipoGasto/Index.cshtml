@@ -5,14 +5,14 @@
 {
     <h2>CRUD TIPOS DE GASTO</h2>
     <p>
-        <a asp-controller="TipoGasto" asp-action="AddTipoGasto">Crear</a> -
-        <a asp-controller="TipoGasto" asp-action="EliminarTipoGasto">Eliminar</a> -
-        <a asp-controller="TipoGasto" asp-action="EditarTipoGasto">Editar</a>
+        <a asp-controller="TipoGasto" asp-action="AddTipoGasto" class="btn btn-secondary rounded-pill shadow-sm">Crear</a> -
+        <a asp-controller="TipoGasto" asp-action="EliminarTipoGasto" class="btn btn-secondary rounded-pill shadow-sm">Eliminar</a> -
+        <a asp-controller="TipoGasto" asp-action="EditarTipoGasto" class="btn btn-secondary rounded-pill shadow-sm">Editar</a>
     </p>
 
         <h2>Listado de todos los tipos de gasto</h2>
-        <table class="table">
-            <thead>
+    <table class="table table-striped table-bordered table-hover table-responsive">
+        <thead class="table-dark">
                 <tr>
                     <th>Id</th>
                     <th>Nombre</th>

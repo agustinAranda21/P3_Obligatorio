@@ -28,6 +28,11 @@ namespace AccessDataLogic.Entity_Framework.Repositorios
             throw new NotImplementedException();
         }
 
+        public IEnumerable<AuditoriaTipoGasto> FindAllPorNombreTipoGasto(String nombre)
+        {
+            return _context.auditoriasTipoGastos.Where(a => a.Nombre.Equals(nombre)).ToList();
+        }
+
         public AuditoriaTipoGasto FindById(int id)
         {
             throw new NotImplementedException();

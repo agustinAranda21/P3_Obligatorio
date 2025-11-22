@@ -4,31 +4,30 @@
     ViewData["Title"] = "Login";
 }
 
-<h1>Login</h1>
-
-
 @if (!string.IsNullOrWhiteSpace(ViewBag.Error))
 {
     if (ViewBag.Error.Contains("iniciar sesión"))
     {
         <div class="alert alert-warning">
-            @ViewBag.Error
-        </div>
-    } else
-    {
-        <div class="alert alert-danger">
-            @ViewBag.Error
+            <i class="bi bi-exclamation-circle-fill"> @ViewBag.Error</i>
         </div>
     }
-    
+    else
+    {
+        <div class="alert alert-danger">
+            <i class="bi bi-x-circle-fill"> @ViewBag.Error</i>
+        </div>
+    }
+
 }
+<h1>Login</h1>
 
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Login">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label for="Email" class="control-label">Email</label>
                 <input id="Email" name="Email" class="form-control" required />
             </div>
@@ -37,10 +36,12 @@
                 <label for="password" class="control-label">Clave</label>
                 <input id="password" name="password" type="password" class="form-control" required/>
             </div>
-            <br/>
+            <br>
             <div class="form-group">
-                <input type="submit" value="Login" class="btn btn-primary" />
+                <button type="submit" value="Login" class="btn btn-primary rounded-pill shadow-sm"><i class="bi bi-box-arrow-in-right"> Ingresar</i></button>
             </div>
         </form>
     </div>
 </div>
+
+

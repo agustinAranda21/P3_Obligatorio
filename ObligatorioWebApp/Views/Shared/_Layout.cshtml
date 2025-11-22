@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ObligatorioWebApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
 </head>
 <body>
@@ -19,10 +21,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="nav nav-tabs">
                         @if (!string.IsNullOrEmpty(Context.Session.GetString("usuario")))
                         {
-                            <li class="nav-item">
+                            <li class="nav-item" >
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                         }

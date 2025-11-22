@@ -8,11 +8,12 @@
         <label for="IdMonto">Monto: </label>
         <input type="number" class="form-control" name="unMonto" id="IdMonto" placeholder="Monto" required>
     </div>
-    <button type="submit" class="btn btn-primary">Listar</button>
+    <br>
+        <button type="submit" class="btn btn-primary rounded-pill shadow-sm"><i class="bi bi-card-list"> Listar</i></button>
 </form>
 
-    <table class="table">
-        <thead>
+    <table class="table table-striped table-bordered table-hover table-responsive">
+        <thead class="table-dark">
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
@@ -40,20 +41,20 @@
 @if (ViewBag.Message != null)
 {
     <div class="alert alert-info" role="alert">
-        @ViewBag.Message
+            <i class="bi bi-exclamation-circle-fill"> @Html.Raw(ViewBag.Error)</i>
     </div>
 }
 
 @if (ViewBag.Error != null)
 {
     <div class="alert alert-danger" role="alert">
-        @ViewBag.Error
+            <i class="bi bi-x-circle-fill"> @Html.Raw(ViewBag.Error)</i>
     </div>
     }
 } else
 {
     <div class="alert alert-danger" role="alert">
-        <p>No tienes permisos para acceder a esta funcionalidad.</p>
+        <p><i class="bi bi-check-circle-fill"> No tienes permisos para acceder a esta funcionalidad.</i></p>
     </div>
 }
 

@@ -22,7 +22,7 @@ namespace LogicaAplicacion.CasosDeUso.Pago
 
         public PagoDTO ObtenerPorId(int id)
         {
-            var pago = _repo.FindById(id);
+            P3_Dominio.Entities.Pago pago = _repo.FindById(id);
 
             
             if (pago == null)

@@ -9,5 +9,6 @@ namespace P3_Dominio.RepositoryInterfaces
 {
     public interface IRepositorioAuditoriaTipoGasto : IRepositorio<AuditoriaTipoGasto>
     {
+        public IEnumerable<AuditoriaTipoGasto> FindAllPorNombreTipoGasto(String nombre);
     }
 }

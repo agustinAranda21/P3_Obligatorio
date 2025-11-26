@@ -1,0 +1,68 @@
+﻿@using WebAppClienteHttp.DTOs
+@model WebAppClienteHttp.ViewModels.AddPagoViewModel
+
+
+<form method="post">
+    <div class="form-group">
+        <h1>Registrar nuevo pago único</h1>
+        <label for="MetodoDePago">Método de pago</label>
+        <select asp-for="MetodoDePago" class="form-control" required>
+            <option value="" disabled selected>Seleccione...</option>
+            <option value=1>Crédito</option>
+            <option value=2>Efectivo</option>
+        </select>
+        <label for="TipoGastoId">Tipo de gasto</label>
+        <select asp-for="TipoGastoId" class="form-control" required>
+            <option value="" disabled selected>Seleccione...</option>
+            @foreach (TipoGastoDTO tipo in Model.TiposGasto)
+            {
+                <option value="@tipo.Id">@tipo.Nombre</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="UsuarioId">Usuario</label>
+        <select asp-for="UsuarioId" class="form-control" required>
+            <option value="" disabled selected>Seleccione...</option>
+            @foreach (UsuarioDTO usuario in Model.Usuarios)
+            {
+                <option value="@usuario.Id">@usuario.Nombre @usuario.Apellido</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="Descripcion">Descripción</label>
+        <input type="text" class="form-control" asp-for="Descripcion" placeholder="Descripción">
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Monto">Monto</label>
+        <input type="number" step="0.01" class="form-control" asp-for="Monto" placeholder="Monto" required>
+        <span asp-validation-for="Monto" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="FechaDePago">Fecha de pago</label>
+        <input type="date" class="form-control" asp-for="FechaDePago" placeholder="Fecha de pago" required />
+    </div>
+    <div class="form-group">
+        <label for="NumeroDeRecibo">Número de recibo</label>
+        <input type="text" class="form-control" asp-for="NumeroDeRecibo" placeholder="Número de recibo" required />
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary rounded-pill shadow-sm"><i class="bi bi-credit-card-fill"> Añadir</i></button>
+</form>
+
+@if (ViewBag.Mensaje != null)
+{
+    <div class="alert alert-success">
+        <i class="bi bi-check-circle-fill"> @Html.Raw(ViewBag.Mensaje)</i>
+    </div>
+}
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        <i class="bi bi-x-circle-fill"> @Html.Raw(ViewBag.Error)</i>
+    </div>
+}
+

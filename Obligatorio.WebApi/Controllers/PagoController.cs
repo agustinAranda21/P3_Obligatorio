@@ -1,5 +1,6 @@
 ﻿using LogicaAplicacion.DTOs;
 using LogicaAplicacion.InterfacesCU.InterfacesPago;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using P3_Dominio.Exceptions;
@@ -7,6 +8,7 @@ using P3_Dominio.Exceptions;
 namespace Obligatorio.WebApi.Controllers
 {
     [Route("api/[controller]")]
+    
     [ApiController]
     public class PagoController : ControllerBase
     {
@@ -23,6 +25,7 @@ namespace Obligatorio.WebApi.Controllers
         [ProducesResponseType(typeof(PagoDTO), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        
         public ActionResult<PagoDTO> ObtenerDetallesDeUnPago(int id)
         {
             if (id <= 0) return BadRequest("El id ingresado debe ser mayor que 0.");

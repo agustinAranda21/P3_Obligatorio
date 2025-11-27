@@ -19,7 +19,8 @@ namespace LogicaAplicacion.Mappers
                 Descripcion = dto.Descripcion,
                 Accion = dto.Accion,
                 Fecha = dto.Fecha,
-                Usuario = dto.Usuario
+                Usuario = dto.Usuario,
+                IdTipoGasto = dto.IdTipoGasto
             };
         }
 
@@ -32,7 +33,8 @@ namespace LogicaAplicacion.Mappers
                 Descripcion = entidad.Descripcion,
                 Accion = entidad.Accion,
                 Fecha = entidad.Fecha,
-                Usuario = entidad.Usuario
+                Usuario = entidad.Usuario,
+                IdTipoGasto = entidad.IdTipoGasto
             };
         }
     }

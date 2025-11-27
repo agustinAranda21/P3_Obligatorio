@@ -10,6 +10,7 @@ namespace P3_Dominio.Entities
     {
         public int Id { get; set; }
         public string? Nombre { get; set; }
+        public int IdTipoGasto { get; set; }
         public string? Descripcion { get; set; }
         public string? Accion { get; set; }
         public DateTime Fecha { get; set; }

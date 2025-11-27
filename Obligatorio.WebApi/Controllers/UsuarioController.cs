@@ -13,11 +13,13 @@ namespace Obligatorio.WebApi.Controllers
     {
         private ILogin _login;
         private IObtenerUsuarios _listarUsuarios;
+        private IResetearPassUsuario _resetearPassUsuario;
 
-        public UsuarioController(ILogin login, IObtenerUsuarios listarUsuarios)
+        public UsuarioController(ILogin login, IObtenerUsuarios listarUsuarios, IResetearPassUsuario resetearPassUsuario)
         {
             _login = login;
             _listarUsuarios = listarUsuarios;
+            _resetearPassUsuario = resetearPassUsuario;
         }
 
         [HttpPost("Login")]
@@ -40,6 +42,7 @@ namespace Obligatorio.WebApi.Controllers
             }
             return Ok(loginDTO);
         }
+        [Authorize]
         [HttpGet("listarTodos")]
         public IActionResult ListarUsuariosTodos()
         {
@@ -56,6 +59,25 @@ namespace Obligatorio.WebApi.Controllers
             catch (Exception)
             {
                 return StatusCode(500, "Error interno del servidor, intente nuevamente más tarde.");
+            }
+        }
+
+        [Authorize]
+        [HttpPut("resetearPass/{idUsuario}")]
+        [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
+        public ActionResult<string> ResetPassword(int idUsuario)
+        {
+            try
+            {
+                string nuevaPass = _resetearPassUsuario.ResetearPass(idUsuario);
+                return Ok(nuevaPass);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
     }

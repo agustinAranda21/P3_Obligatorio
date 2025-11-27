@@ -38,8 +38,10 @@ namespace AccessDataLogic.Entity_Framework.Repositorios
             return _context.pagos
                 .Include(u => u.TipoGasto)
                 .Include(u => u.Usuario)
+                .ThenInclude(u => u.Equipo)
                 .ToList();
         }
+
 
         public Pago FindById(int id)
         {
@@ -59,6 +61,15 @@ namespace AccessDataLogic.Entity_Framework.Repositorios
         public void Update(Pago actualizar)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Pago> ObtenerPagosPorUsuario(int idUsuario)
+        {
+            return _context.pagos.Where(p => p.Usuario.Id == idUsuario)
+                .Include(p => p.TipoGasto)
+                .Include(p => p.Usuario)
+                .Include(p => p.MetodoDePago)
+                .ToList();
         }
     }
 }

@@ -9,6 +9,6 @@ namespace LogicaAplicacion.InterfacesCU.InterfacesAuditoriaTipoGasto
 {
     public interface IListarAuditoriasTipoGasto
     {
-        public IEnumerable<AuditoriaTipoGastoDTO> ListarTodasLasAuditoriasTipoGasto(String nombre);
+        public IEnumerable<AuditoriaTipoGastoDTO> ListarTodasLasAuditoriasTipoGasto(int id);
     }
 }

@@ -1,0 +1,42 @@
+﻿@model List<WebAppClienteHttp.DTOs.EquipoDTO>
+
+@{
+    ViewBag.Title = "Equipos por monto mayor";
+}
+
+<h2>Equipos por monto mayor</h2>
+
+<form method="post" asp-action="EquiposPorMonto">
+    <label>Monto:</label>
+    <input type="number" name="monto" class="form-control" required />
+    <br />
+    <button class="btn btn-primary">Buscar</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+}
+
+@if (Model != null)
+{
+    <h3 class="mt-4">Resultados</h3>
+
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre del Equipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var equipo in Model)
+            {
+                <tr>
+                    <td>@equipo.Id</td>
+                    <td>@equipo.Nombre</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

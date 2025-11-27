@@ -28,9 +28,9 @@ namespace AccessDataLogic.Entity_Framework.Repositorios
             throw new NotImplementedException();
         }
 
-        public IEnumerable<AuditoriaTipoGasto> FindAllPorNombreTipoGasto(String nombre)
+        public IEnumerable<AuditoriaTipoGasto> FindAllByIdTipoGasto(int id)
         {
-            return _context.auditoriasTipoGastos.Where(a => a.Nombre.Equals(nombre)).ToList();
+            return _context.auditoriasTipoGastos.Where(a => a.IdTipoGasto == id).ToList();
         }
 
         public AuditoriaTipoGasto FindById(int id)

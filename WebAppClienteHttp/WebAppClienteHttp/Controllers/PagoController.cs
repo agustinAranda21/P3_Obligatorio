@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using WebAppClienteHttp.ViewModels;
-using WebAppClienteHttp.Exceptions;
-using WebAppClienteHttp.DTOs;
+using Newtonsoft.Json.Linq;
 using WebAppClienteHttp.Auxiliares;
+using WebAppClienteHttp.DTOs;
+using WebAppClienteHttp.Exceptions;
+using WebAppClienteHttp.ViewModels;
 
 namespace WebAppClienteHttp.Controllers
 {
@@ -234,6 +235,63 @@ namespace WebAppClienteHttp.Controllers
                 ViewBag.Error = "Error, verifique los datos: <br>" + ex.Message;
                 return View(viewModel);
             }
-        } 
+        }
+
+        public IActionResult ListarPagosPorUsuario()
+        {
+            List<PagoDTO> pagos = new List<PagoDTO>();
+            return View(pagos);
+        }
+
+        [HttpPost]
+        public IActionResult ListarPagosPorUsuario(int IdUsuario)
+        {
+            List<PagoDTO> pagos = new List<PagoDTO>();
+
+            try
+            {
+                HttpResponseMessage respuesta =
+                    AuxiliarClienteHttp.EnviarSolicitud(
+                        $"https://localhost:7254/api/Pago/usuario/{IdUsuario}",
+                        "GET",
+                        null
+                    );
+
+                string body = AuxiliarClienteHttp.ObtenerBody(respuesta);
+
+                if (respuesta.IsSuccessStatusCode)
+                {
+                    List<JObject> listaJson = JsonConvert.DeserializeObject<List<JObject>>(body);
+
+                    foreach (JObject item in listaJson)
+                    {
+                        UnicoDTO posibleUnico = item.ToObject<UnicoDTO>();
+
+                        if (posibleUnico.FechaDePago != DateTime.MinValue &&
+                            posibleUnico.NumeroDeRecibo != null)
+                        {
+                            pagos.Add(posibleUnico);
+                        }
+                        else
+                        {
+                            RecurrenteDTO posibleRecurrente = item.ToObject<RecurrenteDTO>();
+                            pagos.Add(posibleRecurrente);
+                        }
+                    }
+                }
+                else
+                {
+                    ViewBag.Error = "Error al obtener los pagos: <br>" + body;
+                }
+
+                return View(pagos);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Error, verifique los datos: <br>" + ex.Message;
+                return View(pagos);
+            }
+        }
+
     }
 }

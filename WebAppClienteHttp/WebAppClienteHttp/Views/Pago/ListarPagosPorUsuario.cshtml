@@ -1,0 +1,68 @@
+﻿@using WebAppClienteHttp.DTOs
+@model List<WebAppClienteHttp.DTOs.PagoDTO>
+
+@if (ViewBag.error != null)
+{
+    <div class="alert alert-danger">
+        <i class="bi bi-x-circle-fill"> @Html.Raw(ViewBag.Error)</i>
+    </div>
+}
+
+<form method="post">
+    <div class="form-group">
+        <input type="number" name="IdUsuario" id="IdUsuario" class="form-control mb-3" />
+        <button type="submit" class="btn btn-primary rounded-pill shadow-sm mb-3">
+            <i class="bi bi-card-list"> Pago por usuario</i>
+        </button>
+    </div>
+</form>
+
+<h2>Listado de pagos</h2>
+<table class="table table-striped table-bordered table-hover table-responsive">
+    <thead class="table-dark">
+        <tr>
+            <th>Id</th>
+            <th>Metodo de pago</th>
+            <th>Tipo de gasto</th>
+            <th>Usuario</th>
+            <th>Descripcion</th>
+            <th>Monto</th>
+            <th>Fecha</th>
+            <th>Numero recibo</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Fin</th>
+            <th>Saldo pendiente</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (PagoDTO pago in Model)
+        {
+            <tr>
+                <td>@pago.Id</td>
+                <td>@pago.MetodoDePago.Metodo</td>
+                <td>@pago.TipoGasto.Nombre</td>
+                <td>@pago.Usuario.Apellido</td>
+                <td>@pago.Descripcion</td>
+                <td>@pago.Monto</td>
+
+                @if (pago is UnicoDTO unico)
+                {
+                    <td>@unico.FechaDePago</td>
+                    <td>@unico.NumeroDeRecibo</td>
+                    <td>-</td>
+                    <td>-</td>
+                }
+                else if (pago is RecurrenteDTO recurrente)
+                {
+                    <td>-</td>
+                    <td>-</td>
+                    <td>@recurrente.Desde</td>
+                    <td>@recurrente.Hasta</td>
+                }
+
+                <td>@pago.SaldoPendiente</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

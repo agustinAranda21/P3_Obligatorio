@@ -11,6 +11,7 @@ namespace WebAppClienteHttp.DTOs
     {
         public string Email { get; set; }
         public string Clave { get; set; }
-        
+        public string Token { get; set; }
+
     }
 }

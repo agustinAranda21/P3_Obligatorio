@@ -9,47 +9,51 @@ namespace ObligatorioWebApp.Controllers;
 
 public class HomeController : Controller
 {
+    public HomeController() { }
 
-    public HomeController()
+    public IActionResult Index()
     {
-
-    }
-    public IActionResult Index(string error)
-    {
-        ViewBag.Error = error;
         return View();
     }
 
     [HttpPost]
-    public IActionResult Login(string email, string password)
+    [ValidateAntiForgeryToken]
+    public IActionResult Login(string email, string clave)
     {
         try
         {
-            LoginDTO logueado = new LoginDTO { Email = email, Clave = password };
+            var logueado = new LoginDTO { Email = email, Clave = clave };
 
             HttpResponseMessage respuesta = AuxiliarClienteHttp.EnviarSolicitud("https://localhost:7254/api/Usuario/Login", "POST", logueado);
             string body = AuxiliarClienteHttp.ObtenerBody(respuesta);
 
-            if (!respuesta.IsSuccessStatusCode) // Serie 400 o 500
+            if (!respuesta.IsSuccessStatusCode)
             {
-                // Redirige a Index (la vista que contiene el formulario) pasando el mensaje de error
-                return RedirectToAction("Index", new { error = body });
+                // Mostrar mensaje retornado por la API (400/500) y volver al formulario
+                ViewBag.Mensaje = body;
+                return View("Index");
             }
 
-            UsuarioDTO usuario = JsonConvert.DeserializeObject<UsuarioDTO>(body); // en el body hay JSON
+            var usuario = JsonConvert.DeserializeObject<UsuarioDTO>(body);
             if (usuario == null)
             {
-                return RedirectToAction("Index", new { error = "Respuesta inválida del servicio de autenticación." });
+                ViewBag.Mensaje = "Respuesta inválida del servidor.";
+                return View("Index");
             }
 
-            HttpContext.Session.SetString("usuario", usuario.Nombre ?? string.Empty);
-            HttpContext.Session.SetInt32("usuarioId", usuario.Id);
-            HttpContext.Session.SetString("token", usuario.Token ?? string.Empty);
-            return RedirectToAction("Index", "Contenido");
+            HttpContext.Session.SetString("email", usuario.Email);
+            if(usuario.Id > 0)
+            {
+                HttpContext.Session.SetInt32("usuarioId", usuario.Id);
+            }
+            HttpContext.Session.SetString("token", usuario.Token);
+
+            return RedirectToAction("Index", "Pago");
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            return RedirectToAction("Index", new { error = "Sucedió un error inesperado." });
+            ViewBag.Error = "Sucedió un error inesperado: " + ex.Message;
+            return View("Index");
         }
     }
 

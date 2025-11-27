@@ -14,6 +14,9 @@ using LogicaAplicacion.InterfacesCU.InterfacesUsuarios;
 using LogicaAplicacion.CasosDeUso.Usuarios;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
+using LogicaAplicacion.CasosDeUso.Pagos;
+using LogicaAplicacion.InterfacesCU.InterfacesEquipo;
+using LogicaAplicacion.CasosDeUso.Equipo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -68,6 +71,7 @@ builder.Services.AddScoped<IRepositorioPago, RepositorioPagoEF>();
 builder.Services.AddScoped<IRepositorioUsuario, RepositorioUsuarioEF>();
 builder.Services.AddScoped<IRepositorioAuditoriaTipoGasto, RepositorioAuditoriaTipoGastoEF>();
 builder.Services.AddScoped<IRepositorioTipoGasto, RepositorioTipoGastoEF>();
+builder.Services.AddScoped<IRepositorioEquipo, RepositorioEquipoEF>();
 
 
 // Inicializacion de casos de uso.
@@ -78,6 +82,9 @@ builder.Services.AddScoped<ILogin, LoginCU>();
 builder.Services.AddScoped<IListarAuditoriasTipoGasto, ListarAuditoriasTipoGastoCU>();
 builder.Services.AddScoped<IObtenerTiposGasto, ObtenerTiposGastoCU>();
 builder.Services.AddScoped<IObtenerUsuarios, ObtenerUsuariosCU>();
+builder.Services.AddScoped<IObtenerPagosPorUsuario, ObtenerPagosPorUsuarioCU>();
+builder.Services.AddScoped<IResetearPassUsuario, ResetearPassUsuarioCU>();
+builder.Services.AddScoped<IObtenerEquiposPorMontoMayorA, ObtenerEquiposPorMontoMayorACU>();
 
 
 var app = builder.Build();

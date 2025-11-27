@@ -20,11 +20,18 @@ namespace ObligatorioWebApp.Controllers
         public IActionResult Index()
         {
             IEnumerable<AuditoriaTipoGastoDTO> auditorias = new List<AuditoriaTipoGastoDTO>();
+
+            return View(auditorias);
+        }
+
+        [HttpPost]
+        public IActionResult Index(int idTipoGasto)
+        {
+            IEnumerable<AuditoriaTipoGastoDTO> auditorias = new List<AuditoriaTipoGastoDTO>();
             try
             {
                 string token = HttpContext.Session.GetString("token");
-                HttpResponseMessage respuesta = AuxiliarClienteHttp.EnviarSolicitud("http://localhost:5207/api/TipoGasto?nombreTipoGasto=Marketing", "GET", null, token);
-                HttpContent content = respuesta.Content;
+                HttpResponseMessage respuesta = AuxiliarClienteHttp.EnviarSolicitud($"https://localhost:7254/api/TipoGasto/listarAuditoriasPorIdTP/{idTipoGasto}", "GET", null, token);
 
                 string body = AuxiliarClienteHttp.ObtenerBody(respuesta);
 

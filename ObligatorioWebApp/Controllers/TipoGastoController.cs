@@ -1,4 +1,5 @@
-﻿using LogicaAplicacion.CasosDeUso.TipoGasto;
+﻿using AccessDataLogic.Migrations;
+using LogicaAplicacion.CasosDeUso.TipoGasto;
 using LogicaAplicacion.DTOs;
 using LogicaAplicacion.InterfacesCU.InterfacesAuditoriaTipoGasto;
 using LogicaAplicacion.InterfacesCU.InterfacesPago;
@@ -79,7 +80,8 @@ namespace ObligatorioWebApp.Controllers
                     Descripcion = model .Descripcion,
                     Accion = "Creación",
                     Fecha = DateTime.Now,
-                    Usuario = HttpContext.Session.GetString("usuarioApellido") 
+                    Usuario = HttpContext.Session.GetString("usuarioApellido") ,
+                    IdTipoGasto = nuevo.Id
                 }; 
                 _auditoria.Add(auditoria);
                 ViewBag.Mensaje = "Tipo de gasto creado con éxito.";
@@ -136,7 +138,8 @@ namespace ObligatorioWebApp.Controllers
                         Descripcion = dto.Descripcion,
                         Accion = "Eliminación",
                         Fecha = DateTime.Now,
-                        Usuario = HttpContext.Session.GetString("usuarioApellido")
+                        Usuario = HttpContext.Session.GetString("usuarioApellido"),
+                        IdTipoGasto = dto.Id
                     };
                     _auditoria.Add(auditoria);
                     ViewBag.Mensaje = "Tipo de gasto eliminado con éxito.";
@@ -184,7 +187,8 @@ namespace ObligatorioWebApp.Controllers
                     Descripcion = dto.Descripcion,
                     Accion = "Actualización",
                     Fecha = DateTime.Now,
-                    Usuario = HttpContext.Session.GetString("usuarioApellido")
+                    Usuario = HttpContext.Session.GetString("usuarioApellido"),
+                    IdTipoGasto = dto.Id
                 };
                 _auditoria.Add(auditoria);
                 ViewBag.Message = "Tipo de gasto editado con éxito.";

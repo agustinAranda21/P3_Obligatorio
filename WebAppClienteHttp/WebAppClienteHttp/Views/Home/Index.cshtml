@@ -14,15 +14,16 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Login">
+        <form asp-action="Login" method="post">
+            @Html.AntiForgeryToken()
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label id="Email" class="control-label">Email</label>
-                <input name="Email" class="form-control" />
+                <label id="email" class="control-label">Email</label>
+                <input name="email" class="form-control" />
             </div>
             <div class="form-group">
-                <label Id="Password" class="control-label">Contraseña</label>
-                <input name="Password" type="password" class="form-control" />
+                <label Id="clave" class="control-label">Contraseña</label>
+                <input name="clave" type="password" class="form-control" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Login" class="btn btn-primary" />

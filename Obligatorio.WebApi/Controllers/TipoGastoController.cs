@@ -10,6 +10,7 @@ using P3_Dominio.Entities;
 namespace Obligatorio.WebApi.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class TipoGastoController : ControllerBase
     {
@@ -22,13 +23,13 @@ namespace Obligatorio.WebApi.Controllers
             _tiposGasto = tiposGasto;
         }
 
-        [HttpGet]
-        public IActionResult ListarAuditoriasPorUsuario(String nombreTipoGasto)
+        [HttpGet("listarAuditoriasPorIdTP/{id}")]
+        public IActionResult ListarAuditoriasPorIdTipoGasto(int id)
         {
-            if (nombreTipoGasto == null) return BadRequest("No se proporcionaron datos para el alta.");
+            if (id == null) return BadRequest("No se proporcionaron datos para el alta.");
             try
             {
-                IEnumerable<AuditoriaTipoGastoDTO> lista = _listarAuditorias.ListarTodasLasAuditoriasTipoGasto(nombreTipoGasto);
+                IEnumerable<AuditoriaTipoGastoDTO> lista = _listarAuditorias.ListarTodasLasAuditoriasTipoGasto(id);
                 return Ok(lista);
             } catch (ArgumentException ex)
             {

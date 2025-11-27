@@ -23,5 +23,23 @@ namespace P3_Dominio.Entities
         }
 
         public void Validar() { }
+    
+
+     public override bool Equals(object obj)
+        {
+            if (obj is not Equipo other)
+                return false;
+
+            // Si alguno no tiene Id asignado, no los consideramos iguales
+            if (Id == 0 || other.Id == 0)
+                return false;
+
+            return Id == other.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 }

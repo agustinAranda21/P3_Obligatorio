@@ -13,8 +13,6 @@ namespace P3_Dominio.Entities
     {
         public int Id { get; set; }
         public MetodoDePago MetodoDePago { get; set; }
-        
-        // Foreign keys
         public int TipoGastoId { get; set; }
         public int UsuarioId { get; set; }
         public TipoGasto TipoGasto { get; set; }

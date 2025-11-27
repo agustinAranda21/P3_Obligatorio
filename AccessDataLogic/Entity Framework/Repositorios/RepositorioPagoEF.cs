@@ -38,6 +38,7 @@ namespace AccessDataLogic.Entity_Framework.Repositorios
             return _context.pagos
                 .Include(u => u.TipoGasto)
                 .Include(u => u.Usuario)
+                .ThenInclude(u => u.Equipo)
                 .ToList();
         }
 

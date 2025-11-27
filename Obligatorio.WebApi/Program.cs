@@ -1,12 +1,16 @@
 using AccessDataLogic.Entity_Framework;
 using AccessDataLogic.Entity_Framework.Repositorios;
 using LogicaAplicacion.CasosDeUso.AuditoriaTipoGasto;
+using LogicaAplicacion.CasosDeUso.Equipo;
 using LogicaAplicacion.CasosDeUso.Pago;
 using LogicaAplicacion.CasosDeUso.Pagos;
 using LogicaAplicacion.CasosDeUso.TipoGasto;
+using LogicaAplicacion.CasosDeUso.Usuarios;
 using LogicaAplicacion.InterfacesCU.InterfacesAuditoriaTipoGasto;
 using LogicaAplicacion.InterfacesCU.InterfacesPago;
 using LogicaAplicacion.InterfacesCU.InterfacesTipoGasto;
+using LogicaAplicacion.InterfacesCU.InterfacesEquipo;
+using LogicaAplicacion.InterfacesCU.InterfacesUsuarios;
 using Microsoft.EntityFrameworkCore;
 using P3_Dominio.RepositoryInterfaces;
 
@@ -26,6 +30,8 @@ builder.Services.AddDbContext<ObligatorioContext>(
 // Inicializacion de repositorios.
 builder.Services.AddScoped<IRepositorioPago, RepositorioPagoEF>();
 builder.Services.AddScoped<IRepositorioAuditoriaTipoGasto, RepositorioAuditoriaTipoGastoEF>();
+builder.Services.AddScoped<IRepositorioEquipo, RepositorioEquipoEF>();
+builder.Services.AddScoped<IRepositorioUsuario, RepositorioUsuarioEF>();
 
 
 // Inicializacion de casos de uso.
@@ -34,6 +40,8 @@ builder.Services.AddScoped<IAddPago, AddPagoCU>();
 builder.Services.AddScoped<IObtenerPagos, ObtenerPagosCU>();
 builder.Services.AddScoped<IListarAuditoriasTipoGasto, ListarAuditoriasTipoGastoCU>();
 builder.Services.AddScoped<IObtenerPagosPorUsuario, ObtenerPagosPorUsuarioCU>();
+builder.Services.AddScoped<IObtenerEquiposPorMontoMayorA, ObtenerEquiposPorMontoMayorACU>();
+builder.Services.AddScoped<IResetearPassUsuario, ResetearPassUsuarioCU>();
 
 
 

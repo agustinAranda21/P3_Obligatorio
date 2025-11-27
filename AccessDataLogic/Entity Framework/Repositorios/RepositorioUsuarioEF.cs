@@ -44,8 +44,11 @@ namespace AccessDataLogic.Entity_Framework.Repositorios
 
         public Usuario FindById(int id)
         {
-            return _context.usuarios.Where(user => user.Id == id).FirstOrDefault();
+            return _context.usuarios
+                .Include(u => u.Equipo)
+                .FirstOrDefault(u => u.Id == id);
         }
+
 
         public Usuario Login(string email, Password password)
         {
@@ -68,7 +71,16 @@ namespace AccessDataLogic.Entity_Framework.Repositorios
 
         public void Update(Usuario actualizar)
         {
-            throw new NotImplementedException();
+            try
+            {
+                actualizar.Validar();
+                _context.usuarios.Update(actualizar);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al actualizar el usuario: " + ex.Message, ex);
+            }
         }
     }
 }

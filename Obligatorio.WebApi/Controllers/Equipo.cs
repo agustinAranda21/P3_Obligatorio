@@ -28,6 +28,7 @@ namespace Obligatorio.WebApi.Controllers
         [HttpGet("montoMayorA/{monto}")]
         [ProducesResponseType(typeof(IEnumerable<EquipoDTO>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult<IEnumerable<EquipoDTO>> ObtenerEquiposPorMontoMayorA(double monto)
         {

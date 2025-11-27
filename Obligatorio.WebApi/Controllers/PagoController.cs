@@ -50,6 +50,11 @@ namespace Obligatorio.WebApi.Controllers
         }
 
         [HttpPost("unico")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
         public ActionResult AltaPagoUnico([FromBody] UnicoDTO? pago)
         {
             if (pago == null) return BadRequest("No se proporcionaron datos para el alta.");
@@ -70,6 +75,10 @@ namespace Obligatorio.WebApi.Controllers
         }
 
         [HttpPost("recurrente")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult AltaPagoRecurrente([FromBody] RecurrenteDTO? pago)
         {
             if (pago == null) return BadRequest("No se proporcionaron datos para el alta.");
@@ -90,6 +99,10 @@ namespace Obligatorio.WebApi.Controllers
         }
 
         [HttpGet("usuario/{idUsuario}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult ListarPagosPorUsuario(int idUsuario)
         {
             if (idUsuario <= 0) return BadRequest("El id del usuario debe ser mayor que 0.");

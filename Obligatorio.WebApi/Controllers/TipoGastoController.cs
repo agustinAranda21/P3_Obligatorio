@@ -24,6 +24,10 @@ namespace Obligatorio.WebApi.Controllers
         }
 
         [HttpGet("listarAuditoriasPorIdTP/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult ListarAuditoriasPorIdTipoGasto(int id)
         {
             if (id == null) return BadRequest("No se proporcionaron datos para el alta.");
@@ -43,6 +47,10 @@ namespace Obligatorio.WebApi.Controllers
         }
 
         [HttpGet("listarTodos")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult ListarTiposGasto()
         {
             try

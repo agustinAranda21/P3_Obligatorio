@@ -23,6 +23,10 @@ namespace Obligatorio.WebApi.Controllers
         }
 
         [HttpPost("Login")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult Login([FromBody] LoginDTO loginDTO)
         {
             try
@@ -44,6 +48,10 @@ namespace Obligatorio.WebApi.Controllers
         }
         [Authorize]
         [HttpGet("listarTodos")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult ListarUsuariosTodos()
         {
             try

@@ -16,7 +16,6 @@ namespace LogicaAplicacion.DTOs
         
         public int TipoGastoId { get; set; }
         public int UsuarioId { get; set; }
-        
         public TipoGastoDTO? TipoGasto { get; set; }
         public UsuarioDTO? Usuario { get; set; }
         

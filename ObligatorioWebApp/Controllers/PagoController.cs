@@ -190,10 +190,8 @@ namespace ObligatorioWebApp.Controllers
             int mesSeleccionado = unaFecha.Month;
             int añoSeleccionado = unaFecha.Year;
 
-            // Filtrar pagos únicos del mes seleccionado
             IEnumerable<PagoDTO> pagosUnicos = pagos.OfType<UnicoDTO>().Where(u => u.FechaDePago.Month == mesSeleccionado && u.FechaDePago.Year == añoSeleccionado).Cast<PagoDTO>();
 
-            // Filtrar pagos recurrentes que aplican al mes seleccionado
             IEnumerable<PagoDTO> pagosRecurrentes = pagos.OfType<RecurrenteDTO>()
                 .Where(r => (r.Desde.Year < añoSeleccionado || (r.Desde.Year == añoSeleccionado && r.Desde.Month <= mesSeleccionado)) &&
                             (r.Hasta.Year > añoSeleccionado || (r.Hasta.Year == añoSeleccionado && r.Hasta.Month >= mesSeleccionado)))
@@ -206,7 +204,6 @@ namespace ObligatorioWebApp.Controllers
                 })
                 .Cast<PagoDTO>();
 
-            // Combinar ambos tipos de pagos
             List<PagoDTO> pagosPorFecha = pagosUnicos.Concat(pagosRecurrentes).ToList();
 
             if (!pagosPorFecha.Any())

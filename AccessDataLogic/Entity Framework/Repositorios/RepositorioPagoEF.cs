@@ -60,5 +60,14 @@ namespace AccessDataLogic.Entity_Framework.Repositorios
         {
             throw new NotImplementedException();
         }
+
+        List<Pago> IRepositorioPago.ObtenerPagosPorUsuario(int idUsuario)
+        {
+            return _context.pagos.Where(p => p.Usuario.Id == idUsuario)
+                .Include(p => p.TipoGasto)
+                .Include(p => p.Usuario)
+                .Include(p => p.MetodoDePago)
+                .ToList();
+        }
     }
 }

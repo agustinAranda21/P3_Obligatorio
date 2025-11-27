@@ -2,6 +2,7 @@
 using LogicaAplicacion.InterfacesCU.InterfacesPago;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using P3_Dominio.Entities;
 using P3_Dominio.Exceptions;
 
 namespace Obligatorio.WebApi.Controllers
@@ -12,11 +13,14 @@ namespace Obligatorio.WebApi.Controllers
     {
         private IObtenerPagoPorId _pagos;
         private IAddPago _addPago;
+        private IObtenerPagosPorUsuario _obtenerPagosPorUsuario;
 
-        public PagoController(IObtenerPagoPorId pagos, IAddPago addPago)
+        public PagoController(IObtenerPagoPorId pagos, IAddPago addPago, IObtenerPagosPorUsuario usuarioPago)
         {
             _pagos = pagos;
             _addPago = addPago;
+            _obtenerPagosPorUsuario = usuarioPago;
+
         }
 
         [HttpGet("{id}", Name = "BuscarPorId")]
@@ -37,7 +41,7 @@ namespace Obligatorio.WebApi.Controllers
                 }
 
                 return Ok(unPago);
-            } 
+            }
             catch (PagoException ex)
             {
                 return BadRequest(ex.Message);
@@ -56,12 +60,12 @@ namespace Obligatorio.WebApi.Controllers
             {
 
                 return BadRequest(ex.Message);
-            } 
+            }
             catch (Exception)
             {
                 return StatusCode(500, "Error interno del servidor. Intente nuevamente más tarde.");
             }
-            return CreatedAtRoute("BuscarPorId", new {id = pago.Id}, pago);
+            return CreatedAtRoute("BuscarPorId", new { id = pago.Id }, pago);
         }
 
         [HttpPost("recurrente")]
@@ -83,5 +87,25 @@ namespace Obligatorio.WebApi.Controllers
             }
             return CreatedAtRoute("BuscarPorId", new { id = pago.Id }, pago);
         }
+
+        [HttpGet("usuario/{idUsuario}")]
+        public ActionResult ListarPagosPorUsuario(int idUsuario)
+        {
+            if (idUsuario <= 0) return BadRequest("El id del usuario debe ser mayor que 0.");
+            try
+            {
+                List<PagoDTO> lista = _obtenerPagosPorUsuario.ObtenerPorUsuario(idUsuario);
+                return Ok(lista);
+            }
+            catch (PagoException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Error interno del servidor, intente nuevamente más tarde.");
+            }
+        }
     }
 }
+    
